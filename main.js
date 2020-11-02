@@ -481,7 +481,7 @@ module.exports = "<!--<p>product-add works!</p>-->\n<ng-container>\n\t<div>\n\t\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ng-container>\n\t<div>\n\t\t<!--<kt-portlet-header [title]=\"'CREATE ORDER'\"></kt-portlet-header>-->\n\t\t<br><br>\n\t</div>\n\t<kt-portlet>\n\t\t<kt-portlet-body>\n\t\t\t<mat-tab-group mat-stretch-tabs [(selectedIndex)]=\"selectedTab\" *ngIf=\"product\">\n\t\t\t\t<mat-tab label=\"1. Product Details\">\n\t\t\t\t\t<ng-template matTabContent>\n\t\t\t\t\t\t<div class=\"col-md-12\" *ngFor=\"let product of products\">\n\t\t\t\t\t\t\t<div class=\"row col-md-12\" *ngIf=\"product\">\n\t\t\t\t\t\t\t\t<div class=\"row col-md-8 kt-margin-bottom-10-mobile\">\n\t\t\t\t\t\t\t\t\t<div class=\"col-md-7\">\n\t\t\t\t\t\t\t\t\t\t<mat-radio-group [(ngModel)]=\"product.condition\" layout=\"row\">\n\t\t\t\t\t\t\t\t\t\t\t<mat-radio-button value=\"0\">Create New Product\n\t\t\t\t\t\t\t\t\t\t\t</mat-radio-button>\n\t\t\t\t\t\t\t\t\t\t\t<mat-radio-button value=\"1\">Load From Product Library</mat-radio-button>\n\t\t\t\t\t\t\t\t\t\t</mat-radio-group>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-md-4 float-right\" *ngIf=\"this.products.length > 1\">\n\t\t\t\t\t\t\t\t\t\t<button type=\"button\" mat-raised-button color=\"primary\"\n\t\t\t\t\t\t\t\t\t\t\t\t(click)=\"removeProduct(this.products.indexOf(product))\"\n\t\t\t\t\t\t\t\t\t\t\t\t[disabled]=\"viewLoading\"\n\t\t\t\t\t\t\t\t\t\t\t\tmatTooltip=\"Remove Product from List\">\n\t\t\t\t\t\t\t\t\t\t\tRemove\n\t\t\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<br><br>\n\t\t\t\t\t\t\t\t<div class=\"row text-center\" *ngIf=\"product.condition == 1\">\n\t\t\t\t\t\t\t\t\t<!--<div class=\"row col-md-6\">Load from Product Library</div>-->\n\t\t\t\t\t\t\t\t\t<mat-form-field class=\"col-md-6 example-half-width\">\n\t\t\t\t\t\t\t\t\t\t<input matInput placeholder=\"Product ID\" aria-label=\"State\" [ngModel]=\"refNo\"\n\t\t\t\t\t\t\t\t\t\t\t   [matAutocomplete]=\"auto\">\n\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t\t<div class=\"col-md-6\">\n\t\t\t\t\t\t\t\t\t\t<button class=\"col-md-1\" type=\"button\" mat-raised-button color=\"primary\"\n\t\t\t\t\t\t\t\t\t\t\t\t(click)=\"loadProductFromService(refNo)\" [disabled]=\"viewLoading\"\n\t\t\t\t\t\t\t\t\t\t\t\tmatTooltip=\"Load Product\">\n\t\t\t\t\t\t\t\t\t\t\tLoad\n\t\t\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<br><br>\n\t\t\t\t\t\t\t<div *ngIf=\"product.condition == 0\">\n\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t<div class=\"col-md-3\">\n\t\t\t\t\t\t\t\t\t\t<strong>PRODUCT</strong><br><br>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-md-3\">\n\t\t\t\t\t\t\t\t\t\t<strong>PREVIEW</strong><br><br>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-md-2\">\n\t\t\t\t\t\t\t\t\t\t<strong>PRICE</strong><br><br>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-md-2\">\n\t\t\t\t\t\t\t\t\t\t<strong>QUANTITY</strong><br><br>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-md-2\">\n\t\t\t\t\t\t\t\t\t\t<strong>TOTAL</strong><br><br>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"row example-full-width\">\n\t\t\t\t\t\t\t\t\t<div class=\"col-md-3\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t\t\t<mat-form-field>\n\t\t\t\t\t\t\t\t\t\t\t\t<input matInput placeholder=\"Category\" aria-label=\"Number\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t   [ngModel]=\"product.category\" [matAutocomplete]=\"auto\">\n\t\t\t\t\t\t\t\t\t\t\t\t<mat-autocomplete #auto=\"matAutocomplete\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t  (optionSelected)=\"categorySelection($event.option.value, product)\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-option *ngFor=\"let category of categories\" [value]=\"category\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t{{category}}\n\t\t\t\t\t\t\t\t\t\t\t\t\t</mat-option>\n\t\t\t\t\t\t\t\t\t\t\t\t</mat-autocomplete>\n\t\t\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"row\" *ngIf=\"product.category\">\n\t\t\t\t\t\t\t\t\t\t\t<mat-form-field class=\"example-full-width\">\n\t\t\t\t\t\t\t\t\t\t\t\t<input matInput placeholder=\"Item\" aria-label=\"State\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t   [ngModel]=\"product.item\" [matAutocomplete]=\"auto\">\n\t\t\t\t\t\t\t\t\t\t\t\t<mat-autocomplete #auto=\"matAutocomplete\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t  (optionSelected)=\"ItemSelection($event.option.value, product)\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-option *ngFor=\"let item of Items\" [value]=\"item\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t{{item}}\n\t\t\t\t\t\t\t\t\t\t\t\t\t</mat-option>\n\t\t\t\t\t\t\t\t\t\t\t\t</mat-autocomplete>\n\t\t\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"row\" *ngIf=\"product.item\">\n\t\t\t\t\t\t\t\t\t\t\t<mat-form-field class=\"example-full-width\">\n\t\t\t\t\t\t\t\t\t\t\t\t<input matInput placeholder=\"Color\" aria-label=\"State\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t   [ngModel]=\"product.color\" [matAutocomplete]=\"auto\">\n\t\t\t\t\t\t\t\t\t\t\t\t<mat-autocomplete #auto=\"matAutocomplete\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t  (optionSelected)=\"colorSelection($event.option.value, product)\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-option *ngFor=\"let i of Varieties\" [value]=\"i\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t{{i}}\n\t\t\t\t\t\t\t\t\t\t\t\t\t</mat-option>\n\t\t\t\t\t\t\t\t\t\t\t\t</mat-autocomplete>\n\t\t\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"row\" *ngIf=\"product.color\">\n\t\t\t\t\t\t\t\t\t\t\t<mat-form-field class=\"example-full-width\">\n\t\t\t\t\t\t\t\t\t\t\t\t<input matInput placeholder=\"Size\" aria-label=\"State\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t   [matAutocomplete]=\"auto\">\n\t\t\t\t\t\t\t\t\t\t\t\t<mat-autocomplete #auto=\"matAutocomplete\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t  (optionSelected)=\"sizeSelection($event.option.value, product)\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-option *ngFor=\"let i of Size\" [value]=\"i\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t{{i}}\n\t\t\t\t\t\t\t\t\t\t\t\t\t</mat-option>\n\t\t\t\t\t\t\t\t\t\t\t\t</mat-autocomplete>\n\t\t\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-md-3\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"row\" *ngIf=\"product.size\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"col\">\n\t\t\t\t\t\t\t\t\t\t\t\t<strong>FRONT</strong>\n\t\t\t\t\t\t\t\t\t\t\t\t<mat-card class=\"example-card\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<img mat-card-image\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t src=\"https://99designs-blog.imgix.net/blog/wp-content/uploads/2017/11/Tshirt-design.jpg\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t alt=\"Photo of a Shiba Inu\">\n\t\t\t\t\t\t\t\t\t\t\t\t</mat-card>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"col\">\n\t\t\t\t\t\t\t\t\t\t\t\t<strong>BACK</strong>\n\t\t\t\t\t\t\t\t\t\t\t\t<mat-card class=\"example-card\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<img mat-card-image\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t src=\"https://99designs-blog.imgix.net/blog/wp-content/uploads/2017/11/Tshirt-design.jpg\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t alt=\"Photo of a Shiba Inu\">\n\t\t\t\t\t\t\t\t\t\t\t\t</mat-card>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"row\" *ngIf=\"product.size\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"col\">\n\t\t\t\t\t\t\t\t\t\t\t\t<ui-switch size=\"small\"></ui-switch>&nbsp;<strong>Plain (No Design)</strong>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-md-2\">\n\t\t\t\t\t\t\t\t\t\t{{product.price}}\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-md-2\">\n\t\t\t\t\t\t\t\t\t\t{{product.quantity}}\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-md-2\">\n\t\t\t\t\t\t\t\t\t\t{{product.price * product.quantity}}\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<hr class=\"col-12 kt-border-bottom-grey\">\n\t\t\t\t\t\t\t<br>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<button (click)=\"addNewProduct()\"\n\t\t\t\t\t\t\t\t[ngClass]=\"{'kt-spinner kt-spinner--right kt-spinner--md kt-spinner--light': loading}\"\n\t\t\t\t\t\t\t\tid=\"kt_login_signin_submit\"\n\t\t\t\t\t\t\t\tclass=\"btn btn-primary btn-elevate kt-login__btn-primary\">{{ 'Add New Product'}}</button>\n\n\t\t\t\t\t\t<div class=\"text-center\">\n\t\t\t\t\t\t\t<button class=\"col-md-1\" type=\"button\" mat-raised-button color=\"primary\"\n\t\t\t\t\t\t\t\t\t(click)=\"onSubmit()\"\n\t\t\t\t\t\t\t\t\t[disabled]=\"viewLoading\" matTooltip=\"Save changes\">\n\t\t\t\t\t\t\t\tNext\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<!--end::Form-->\n\t\t\t\t\t</ng-template>\n\t\t\t\t</mat-tab>\n\t\t\t\t<mat-tab label=\"2. Order Details\">\n\t\t\t\t\t<!--[disabled]=\"!product || !product.id\">-->\n\t\t\t\t\t<ng-template matTabContent>\n\t\t\t\t\t\t<!--<kt-remarks-list [productId$]=\"productId$\"></kt-remarks-list>-->\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t<h5>REFERENCE DETAILS</h5>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<br><br>\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-md-6\">\n\t\t\t\t\t\t\t\t\t<strong>Order Reference Number</strong><i class=\"fa fa-info-circle\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t  matTooltip=\"Enter a reference number that you have given to your customer. This can be the order number you receive on your eCommerce store.\">\n\t\t\t\t\t\t\t\t</i><br>\n\t\t\t\t\t\t\t\t\t<mat-form-field class=\"example-half-width\">\n\t\t\t\t\t\t\t\t\t\t<input matInput placeholder=\" \" aria-label=\"Order Reference Number\"\n\t\t\t\t\t\t\t\t\t\t\t   [ngModel]=\"refNo\">\n\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-md-6\">\n\t\t\t\t\t\t\t\t\t<strong>Total Retail Price</strong><i class=\"fa fa-info-circle\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t  matTooltip=\"Enter a reference number that you have given to your customer. This can be the order number you receive on your eCommerce store.\">\n\t\t\t\t\t\t\t\t</i><br>\n\t\t\t\t\t\t\t\t\t<mat-form-field class=\"example-half-width\">\n\t\t\t\t\t\t\t\t\t\t<input type=\"Number\" matInput placeholder=\" \" aria-label=\"Total Retail Price\"\n\t\t\t\t\t\t\t\t\t\t\t   [ngModel]=\"TRP\">\n\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<br><br>\n\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t\t<h5>BRANDING OPTIONS</h5>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<br><br>\n\t\t\t\t\t\t\t\t<div><strong>Branding Options are not applicable. To learn more about our branding\n\t\t\t\t\t\t\t\t\tservices,\n\t\t\t\t\t\t\t\t\t<a href=\"www.google.com\"><span style=\"color: orangered;\">click\n\t\t\t\t\t\t\t\t\t\t\there</span></a></strong>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<br><br>\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-md-8\">\n\t\t\t\t\t\t\t\t\t<h5>SHIPPING DETAILS</h5><br>\n\t\t\t\t\t\t\t\t\t<mat-form-field class=\"col-md-4\">\n\t\t\t\t\t\t\t\t\t\t<input matInput placeholder=\"Mode of Shipping\" aria-label=\"Mode of Shipping\"\n\t\t\t\t\t\t\t\t\t\t\t   [ngModel]=\"product.mode\" [matAutocomplete]=\"auto\">\n\t\t\t\t\t\t\t\t\t\t<mat-autocomplete #auto=\"matAutocomplete\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t  (optionSelected)=\"modeSelection($event.option.value, product)\">\n\t\t\t\t\t\t\t\t\t\t\t<mat-option *ngFor=\"let mode of modes\" [value]=\"mode\">\n\t\t\t\t\t\t\t\t\t\t\t\t{{mode}}\n\t\t\t\t\t\t\t\t\t\t\t</mat-option>\n\t\t\t\t\t\t\t\t\t\t</mat-autocomplete>\n\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t\t<mat-form-field class=\"col-md-4 float-right\" *ngIf=\"product.mode\">\n\t\t\t\t\t\t\t\t\t\t<input matInput placeholder=\"Pincode\" aria-label=\"Enter Pincode\">\n\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<br>\n\t\t\t\t\t\t\t<div *ngIf=\"product.mode\">\n\t\t\t\t\t\t\t\t<h5>SELECT COURIER COMPANY</h5><br>\n\t\t\t\t\t\t\t\t<mat-radio-group [(ngModel)]=\"used_1\">\n\t\t\t\t\t\t\t\t\t<mat-radio-button value=\"0\">Delhivery Surface Standard - ₹ 50 for 200 gms\n\t\t\t\t\t\t\t\t\t</mat-radio-button>\n\t\t\t\t\t\t\t\t\t<br><br>\n\t\t\t\t\t\t\t\t\t<mat-radio-button value=\"1\">Ekart Surface - ₹ 50 for 200 gms</mat-radio-button>\n\t\t\t\t\t\t\t\t\t<br><br>\n\t\t\t\t\t\t\t\t\t<mat-radio-button value=\"2\">Xpressbees Surface - ₹ 50 for 200 gms</mat-radio-button>\n\t\t\t\t\t\t\t\t\t<br><br>\n\t\t\t\t\t\t\t\t\t<mat-radio-button value=\"3\">Delhivery - ₹ 50 for 200 gms</mat-radio-button>\n\t\t\t\t\t\t\t\t\t<br><br>\n\t\t\t\t\t\t\t\t\t<mat-radio-button value=\"4\">Bluedart - ₹ 60 for 200 gms</mat-radio-button>\n\t\t\t\t\t\t\t\t\t<br><br>\n\t\t\t\t\t\t\t\t\t<mat-radio-button value=\"5\">India Post - ₹ 50 for 200 gms</mat-radio-button>\n\t\t\t\t\t\t\t\t\t<br><br>\n\t\t\t\t\t\t\t\t\t<mat-radio-button value=\"6\">Fedex Surface - ₹ 200 for 200 gms\n\t\t\t\t\t\t\t\t\t</mat-radio-button>\n\t\t\t\t\t\t\t\t</mat-radio-group>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<br><br>\n\t\t\t\t\t\t\t<div *ngIf=\"product.mode\">\n\t\t\t\t\t\t\t\t<h5>SHIPPING ADDRESS</h5>\n\t\t\t\t\t\t\t\t<br>\n\t\t\t\t\t\t\t\t<mat-form-field class=\"example-half-width\">\n\t\t\t\t\t\t\t\t\t<strong>Customer name</strong><br>\n\t\t\t\t\t\t\t\t\t<input matInput placeholder=\"\" aria-label=\"Enter Customer Name\">\n\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t<br>\n\t\t\t\t\t\t\t\t<h6>\n\t\t\t\t\t\t\t\t\t<button type=\"button\" color=\"orange\" matTooltip=\"Enter Address to split\">\n\t\t\t\t\t\t\t\t\t\tSplit Street Address\n\t\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t\t</h6>\n\t\t\t\t\t\t\t\t<br>\n\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t<div class=\"col-md-4\">\n\t\t\t\t\t\t\t\t\t\t<strong>Address Line 1</strong><br>\n\t\t\t\t\t\t\t\t\t\t<mat-form-field class=\"example-half-width\">\n\t\t\t\t\t\t\t\t\t\t\t<input matInput placeholder=\"\" aria-label=\"Address line 1\">\n\t\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t\t\t<br>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-md-4\">\n\t\t\t\t\t\t\t\t\t\t<strong>Address Line 2</strong><br>\n\t\t\t\t\t\t\t\t\t\t<mat-form-field class=\"example-half-width\">\n\t\t\t\t\t\t\t\t\t\t\t<input matInput placeholder=\"\" aria-label=\"Address line 2\">\n\t\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t\t\t<br>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-md-4\">\n\t\t\t\t\t\t\t\t\t\t<strong>Land Mark</strong><br>\n\t\t\t\t\t\t\t\t\t\t<mat-form-field class=\"example-half-width\">\n\t\t\t\t\t\t\t\t\t\t\t<input matInput placeholder=\"\" aria-label=\"Address libe 3\">\n\t\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t\t\t<br>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t<div class=\"col-md-4\">\n\t\t\t\t\t\t\t\t\t\t<strong>City</strong><br>\n\t\t\t\t\t\t\t\t\t\t<mat-form-field class=\"example-half-width\">\n\t\t\t\t\t\t\t\t\t\t\t<input matInput placeholder=\"\" aria-label=\"City\">\n\t\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t\t\t<br>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-md-4\">\n\t\t\t\t\t\t\t\t\t\t<strong>State</strong><br>\n\t\t\t\t\t\t\t\t\t\t<mat-form-field class=\"example-half-width\">\n\t\t\t\t\t\t\t\t\t\t\t<input matInput placeholder=\"\" aria-label=\"State\">\n\t\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t\t\t<br>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-md-4\">\n\t\t\t\t\t\t\t\t\t\t<strong>Country</strong><br>\n\t\t\t\t\t\t\t\t\t\t<mat-form-field class=\"example-half-width\">\n\t\t\t\t\t\t\t\t\t\t\t<input matInput placeholder=\"\" aria-label=\"Country\">\n\t\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t\t\t<br>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t<div class=\"col-md-6\">\n\t\t\t\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t\t\t\t<p>Phone Number</p>\n\t\t\t\t\t\t\t\t\t\t\t<input type=\"tel\" placeholder=\"Mobile Phone\">\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-md-6\">\n\t\t\t\t\t\t\t\t\t\t<p>Customer email-id</p>\n\t\t\t\t\t\t\t\t\t\t<mat-form-field class=\"example-half-width\">\n\t\t\t\t\t\t\t\t\t\t\t<input matInput placeholder=\"\" aria-label=\"Enter email-id\">\n\t\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t\t\t<br>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t\t<p>Upload Invoice</p>\n\t\t\t\t\t\t\t\t\t<form action=\"/action_page.php\">\n\t\t\t\t\t\t\t\t\t\t<input type=\"file\" id=\"myFile\" name=\"filename\">\n\t\t\t\t\t\t\t\t\t</form>\n\t\t\t\t\t\t\t\t\t<p><span style=\"color: orange;\"><em>A4 in pdf format</em></span></p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"text-center\">\n\t\t\t\t\t\t\t\t<button class=\"col-md-1\" type=\"button\" mat-raised-button color=\"primary\"\n\t\t\t\t\t\t\t\t\t\t(click)=\"onSubmit()\" [disabled]=\"viewLoading\" matTooltip=\"Go Back\">\n\t\t\t\t\t\t\t\t\tGo Back\n\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</ng-template>\n\t\t\t\t</mat-tab>\n\t\t\t</mat-tab-group>\n\t\t</kt-portlet-body>\n\t</kt-portlet>\n</ng-container>\n"
+module.exports = "<ng-container>\n\t<div>\n\t\t<!--<kt-portlet-header [title]=\"'CREATE ORDER'\"></kt-portlet-header>-->\n\t\t<br><br>\n\t</div>\n\t<kt-portlet>\n\t\t<kt-portlet-body>\n\t\t\t<mat-tab-group *ngIf=\"product\" [(selectedIndex)]=\"selectedTab\" mat-stretch-tabs>\n\t\t\t\t<mat-tab label=\"1. Product Details\">\n\t\t\t\t\t<ng-template matTabContent>\n\t\t\t\t\t\t<div *ngFor=\"let product of products\" class=\"col-md-12\">\n\t\t\t\t\t\t\t<div *ngIf=\"product\" class=\"row col-md-12\">\n\t\t\t\t\t\t\t\t<div class=\"row col-md-8 kt-margin-bottom-10-mobile\">\n\t\t\t\t\t\t\t\t\t<div class=\"col-md-7\">\n\t\t\t\t\t\t\t\t\t\t<mat-radio-group [(ngModel)]=\"product.condition\" layout=\"row\">\n\t\t\t\t\t\t\t\t\t\t\t<mat-radio-button value=\"0\">Create New Product\n\t\t\t\t\t\t\t\t\t\t\t</mat-radio-button>\n\t\t\t\t\t\t\t\t\t\t\t<mat-radio-button value=\"1\">Load From Product Library</mat-radio-button>\n\t\t\t\t\t\t\t\t\t\t</mat-radio-group>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div *ngIf=\"this.products.length > 1\" class=\"col-md-4 float-right\">\n\t\t\t\t\t\t\t\t\t\t<button (click)=\"removeProduct(this.products.indexOf(product))\"\n\t\t\t\t\t\t\t\t\t\t\t\t[disabled]=\"viewLoading\" color=\"primary\"\n\t\t\t\t\t\t\t\t\t\t\t\tmat-raised-button\n\t\t\t\t\t\t\t\t\t\t\t\tmatTooltip=\"Remove Product from List\"\n\t\t\t\t\t\t\t\t\t\t\t\ttype=\"button\">\n\t\t\t\t\t\t\t\t\t\t\tRemove\n\t\t\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<br><br>\n\t\t\t\t\t\t\t\t<div *ngIf=\"product.condition == 1\" class=\"row text-center\">\n\t\t\t\t\t\t\t\t\t<!--<div class=\"row col-md-6\">Load from Product Library</div>-->\n\t\t\t\t\t\t\t\t\t<mat-form-field class=\"col-md-6 example-half-width\">\n\t\t\t\t\t\t\t\t\t\t<input [matAutocomplete]=\"auto\" [ngModel]=\"refNo\" aria-label=\"State\" matInput\n\t\t\t\t\t\t\t\t\t\t\t   placeholder=\"Product ID\">\n\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t\t<div class=\"col-md-6\">\n\t\t\t\t\t\t\t\t\t\t<button (click)=\"loadProductFromService(refNo)\" [disabled]=\"viewLoading\"\n\t\t\t\t\t\t\t\t\t\t\t\tclass=\"col-md-1\" color=\"primary\"\n\t\t\t\t\t\t\t\t\t\t\t\tmat-raised-button matTooltip=\"Load Product\"\n\t\t\t\t\t\t\t\t\t\t\t\ttype=\"button\">\n\t\t\t\t\t\t\t\t\t\t\tLoad\n\t\t\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<br><br>\n\t\t\t\t\t\t\t<div *ngIf=\"product.condition == 0\">\n\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t<div class=\"col-md-3\">\n\t\t\t\t\t\t\t\t\t\t<strong>PRODUCT</strong><br><br>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-md-3\">\n\t\t\t\t\t\t\t\t\t\t<strong>PREVIEW</strong><br><br>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-md-2\">\n\t\t\t\t\t\t\t\t\t\t<strong>PRICE</strong><br><br>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-md-2\">\n\t\t\t\t\t\t\t\t\t\t<strong>QUANTITY</strong><br><br>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-md-2\">\n\t\t\t\t\t\t\t\t\t\t<strong>TOTAL</strong><br><br>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"row example-full-width\">\n\t\t\t\t\t\t\t\t\t<div class=\"col-md-3\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t\t\t<mat-form-field>\n\t\t\t\t\t\t\t\t\t\t\t\t<input [matAutocomplete]=\"auto\" [ngModel]=\"product.category\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t   aria-label=\"Number\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t   matInput placeholder=\"Category\">\n\t\t\t\t\t\t\t\t\t\t\t\t<mat-autocomplete #auto=\"matAutocomplete\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t  (optionSelected)=\"categorySelection($event.option.value, product)\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-option *ngFor=\"let category of categories\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t[value]=\"category.category_name\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t{{category.category_name}}\n\t\t\t\t\t\t\t\t\t\t\t\t\t</mat-option>\n\t\t\t\t\t\t\t\t\t\t\t\t</mat-autocomplete>\n\t\t\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div *ngIf=\"product.category\" class=\"row\">\n\t\t\t\t\t\t\t\t\t\t\t<mat-form-field class=\"example-full-width\">\n\t\t\t\t\t\t\t\t\t\t\t\t<input [matAutocomplete]=\"auto\" [ngModel]=\"product.item\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t   aria-label=\"State\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t   matInput placeholder=\"Item\">\n\t\t\t\t\t\t\t\t\t\t\t\t<mat-autocomplete #auto=\"matAutocomplete\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t  (optionSelected)=\"ItemSelection($event.option.value, product)\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-option *ngFor=\"let item of Items\" [value]=\"item.product_name\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t{{item.product_name}}\n\t\t\t\t\t\t\t\t\t\t\t\t\t</mat-option>\n\t\t\t\t\t\t\t\t\t\t\t\t</mat-autocomplete>\n\t\t\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div *ngIf=\"product.item\" class=\"row\">\n\t\t\t\t\t\t\t\t\t\t\t<div *ngFor=\"let color of Varieties; let index = index\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"container\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"radio\" name=\"itemColor\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t   (click)=\"colorSelection(color, product)\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"checkmark\" [style.background-color]=\"color.option_color_code\"></span>\n\t\t\t\t\t\t\t\t\t\t\t\t</label>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t<div *ngIf=\"product.color\" class=\"row product-size-padding-top\" >\n\n\t\t\t\t\t\t\t\t\t\t\t<div *ngFor=\"let siz of Size\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"container\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t{{siz}}\n\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"radio\" name=\"itemSize\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t   (click)=\"sizeSelection(siz, product)\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"checkmark\" [style.background-color]=\"'Grey'\"></span>\n\t\t\t\t\t\t\t\t\t\t\t\t</label>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-md-3\">\n\n\t\t\t\t\t\t\t\t\t\t<div *ngIf=\"product.size\" class=\"row\" [style.padding-top]=\"15\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"col img-container\">\n\t\t\t\t\t\t\t\t\t\t\t\t<strong>Front</strong>\n\t\t\t\t\t\t\t\t\t\t\t\t<mat-card class=\"example-card\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"Photo of a Shiba Inu\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t mat-card-image\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t src=\"https://99designs-blog.imgix.net/blog/wp-content/uploads/2017/11/Tshirt-design.jpg\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"img-options\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"img-options-content\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"btn btn-sm btn-default\" (click) =\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t   \"openDesignModal(0)\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<i class=\"fa fa-pencil\"></i> Design</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t</mat-card>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"col\">\n\t\t\t\t\t\t\t\t\t\t\t\t<strong>Back</strong>\n\t\t\t\t\t\t\t\t\t\t\t\t<mat-card class=\"example-card\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"Photo of a Shiba Inu\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t mat-card-image\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t src=\"https://99designs-blog.imgix.net/blog/wp-content/uploads/2017/11/Tshirt-design.jpg\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"img-options\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"img-options-content\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"btn btn-sm btn-default\" ng-if=\"!product.product.productValid\" ng-click = \"openDesignModal($index)\"><i class=\"fa fa-pencil\"></i> Design</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"btn btn-sm btn-default\" ng-if=\"product.product.productValid && !product.product.plainProduct\" ng-click = \"openDesignModal($index)\"><i class=\"fa fa-pencil\"></i> Edit</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t</mat-card>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div *ngIf=\"product.size\" class=\"row\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"col\">\n\t\t\t\t\t\t\t\t\t\t\t\t<ui-switch size=\"small\"></ui-switch>&nbsp;<strong>Plain (No\n\t\t\t\t\t\t\t\t\t\t\t\tDesign)</strong>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-md-2\">\n\t\t\t\t\t\t\t\t\t\t{{product.price}}\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-md-2\">\n\t\t\t\t\t\t\t\t\t\t{{product.quantity}}\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-md-2\">\n\t\t\t\t\t\t\t\t\t\t{{product.price * product.quantity}}\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<br>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<button (click)=\"addNewProduct()\"\n\t\t\t\t\t\t\t\t[ngClass]=\"{'kt-spinner kt-spinner--right kt-spinner--md kt-spinner--light': loading}\"\n\t\t\t\t\t\t\t\tclass=\"btn btn-primary btn-elevate kt-login__btn-primary\"\n\t\t\t\t\t\t\t\tid=\"kt_login_signin_submit\">{{ 'Add New Product'}}</button>\n\n\t\t\t\t\t\t<hr class=\"col-12 kt-border-bottom-grey\">\n\n\t\t\t\t\t\t<div class=\"text-center\">\n\t\t\t\t\t\t\t<button (click)=\"onSubmit()\" [disabled]=\"viewLoading\" class=\"col-md-1\" color=\"primary\"\n\t\t\t\t\t\t\t\t\tmat-raised-button\n\t\t\t\t\t\t\t\t\tmatTooltip=\"Save changes\" type=\"button\">\n\t\t\t\t\t\t\t\tNext\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<!--end::Form-->\n\t\t\t\t\t</ng-template>\n\t\t\t\t</mat-tab>\n\t\t\t\t<mat-tab label=\"2. Order Details\">\n\t\t\t\t\t<!--[disabled]=\"!product || !product.id\">-->\n\t\t\t\t\t<ng-template matTabContent>\n\t\t\t\t\t\t<!--<kt-remarks-list [productId$]=\"productId$\"></kt-remarks-list>-->\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t<h5>REFERENCE DETAILS</h5>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<br><br>\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-md-6\">\n\t\t\t\t\t\t\t\t\t<strong>Order Reference Number</strong><i class=\"fa fa-info-circle\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t  matTooltip=\"Enter a reference number that you have given to your customer. This can be the order number you receive on your eCommerce store.\">\n\t\t\t\t\t\t\t\t</i><br>\n\t\t\t\t\t\t\t\t\t<mat-form-field class=\"example-half-width\">\n\t\t\t\t\t\t\t\t\t\t<input [ngModel]=\"refNo\" aria-label=\"Order Reference Number\" matInput\n\t\t\t\t\t\t\t\t\t\t\t   placeholder=\" \">\n\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-md-6\">\n\t\t\t\t\t\t\t\t\t<strong>Total Retail Price</strong><i class=\"fa fa-info-circle\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t  matTooltip=\"Enter a reference number that you have given to your customer. This can be the order number you receive on your eCommerce store.\">\n\t\t\t\t\t\t\t\t</i><br>\n\t\t\t\t\t\t\t\t\t<mat-form-field class=\"example-half-width\">\n\t\t\t\t\t\t\t\t\t\t<input [ngModel]=\"TRP\" aria-label=\"Total Retail Price\" matInput placeholder=\" \"\n\t\t\t\t\t\t\t\t\t\t\t   type=\"Number\">\n\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<br><br>\n\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t\t<h5>BRANDING OPTIONS</h5>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<br><br>\n\t\t\t\t\t\t\t\t<div><strong>Branding Options are not applicable. To learn more about our branding\n\t\t\t\t\t\t\t\t\tservices,\n\t\t\t\t\t\t\t\t\t<a href=\"www.google.com\"><span style=\"color: orangered;\">click\n\t\t\t\t\t\t\t\t\t\t\there</span></a></strong>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<br><br>\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-md-8\">\n\t\t\t\t\t\t\t\t\t<h5>SHIPPING DETAILS</h5><br>\n\t\t\t\t\t\t\t\t\t<mat-form-field class=\"col-md-4\">\n\t\t\t\t\t\t\t\t\t\t<input [matAutocomplete]=\"auto\" [ngModel]=\"product.mode\"\n\t\t\t\t\t\t\t\t\t\t\t   aria-label=\"Mode of Shipping\"\n\t\t\t\t\t\t\t\t\t\t\t   matInput placeholder=\"Mode of Shipping\">\n\t\t\t\t\t\t\t\t\t\t<mat-autocomplete #auto=\"matAutocomplete\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t  (optionSelected)=\"modeSelection($event.option.value, product)\">\n\t\t\t\t\t\t\t\t\t\t\t<mat-option *ngFor=\"let mode of modes\" [value]=\"mode\">\n\t\t\t\t\t\t\t\t\t\t\t\t{{mode}}\n\t\t\t\t\t\t\t\t\t\t\t</mat-option>\n\t\t\t\t\t\t\t\t\t\t</mat-autocomplete>\n\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t\t<mat-form-field *ngIf=\"product.mode\" class=\"col-md-4 float-right\">\n\t\t\t\t\t\t\t\t\t\t<input aria-label=\"Enter Pincode\" matInput placeholder=\"Pincode\">\n\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<br>\n\t\t\t\t\t\t\t<div *ngIf=\"product.mode\">\n\t\t\t\t\t\t\t\t<h5>SELECT COURIER COMPANY</h5><br>\n\t\t\t\t\t\t\t\t<mat-radio-group [(ngModel)]=\"used_1\">\n\t\t\t\t\t\t\t\t\t<mat-radio-button value=\"0\">Delhivery Surface Standard - ₹ 50 for 200 gms\n\t\t\t\t\t\t\t\t\t</mat-radio-button>\n\t\t\t\t\t\t\t\t\t<br><br>\n\t\t\t\t\t\t\t\t\t<mat-radio-button value=\"1\">Ekart Surface - ₹ 50 for 200 gms</mat-radio-button>\n\t\t\t\t\t\t\t\t\t<br><br>\n\t\t\t\t\t\t\t\t\t<mat-radio-button value=\"2\">Xpressbees Surface - ₹ 50 for 200 gms</mat-radio-button>\n\t\t\t\t\t\t\t\t\t<br><br>\n\t\t\t\t\t\t\t\t\t<mat-radio-button value=\"3\">Delhivery - ₹ 50 for 200 gms</mat-radio-button>\n\t\t\t\t\t\t\t\t\t<br><br>\n\t\t\t\t\t\t\t\t\t<mat-radio-button value=\"4\">Bluedart - ₹ 60 for 200 gms</mat-radio-button>\n\t\t\t\t\t\t\t\t\t<br><br>\n\t\t\t\t\t\t\t\t\t<mat-radio-button value=\"5\">India Post - ₹ 50 for 200 gms</mat-radio-button>\n\t\t\t\t\t\t\t\t\t<br><br>\n\t\t\t\t\t\t\t\t\t<mat-radio-button value=\"6\">Fedex Surface - ₹ 200 for 200 gms\n\t\t\t\t\t\t\t\t\t</mat-radio-button>\n\t\t\t\t\t\t\t\t</mat-radio-group>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<br><br>\n\t\t\t\t\t\t\t<div *ngIf=\"product.mode\">\n\t\t\t\t\t\t\t\t<h5>SHIPPING ADDRESS</h5>\n\t\t\t\t\t\t\t\t<br>\n\t\t\t\t\t\t\t\t<mat-form-field class=\"example-half-width\">\n\t\t\t\t\t\t\t\t\t<strong>Customer name</strong><br>\n\t\t\t\t\t\t\t\t\t<input aria-label=\"Enter Customer Name\" matInput placeholder=\"\">\n\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t<br>\n\t\t\t\t\t\t\t\t<h6>\n\t\t\t\t\t\t\t\t\t<button color=\"orange\" matTooltip=\"Enter Address to split\" type=\"button\">\n\t\t\t\t\t\t\t\t\t\tSplit Street Address\n\t\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t\t</h6>\n\t\t\t\t\t\t\t\t<br>\n\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t<div class=\"col-md-4\">\n\t\t\t\t\t\t\t\t\t\t<strong>Address Line 1</strong><br>\n\t\t\t\t\t\t\t\t\t\t<mat-form-field class=\"example-half-width\">\n\t\t\t\t\t\t\t\t\t\t\t<input aria-label=\"Address line 1\" matInput placeholder=\"\">\n\t\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t\t\t<br>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-md-4\">\n\t\t\t\t\t\t\t\t\t\t<strong>Address Line 2</strong><br>\n\t\t\t\t\t\t\t\t\t\t<mat-form-field class=\"example-half-width\">\n\t\t\t\t\t\t\t\t\t\t\t<input aria-label=\"Address line 2\" matInput placeholder=\"\">\n\t\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t\t\t<br>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-md-4\">\n\t\t\t\t\t\t\t\t\t\t<strong>Land Mark</strong><br>\n\t\t\t\t\t\t\t\t\t\t<mat-form-field class=\"example-half-width\">\n\t\t\t\t\t\t\t\t\t\t\t<input aria-label=\"Address libe 3\" matInput placeholder=\"\">\n\t\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t\t\t<br>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t<div class=\"col-md-4\">\n\t\t\t\t\t\t\t\t\t\t<strong>City</strong><br>\n\t\t\t\t\t\t\t\t\t\t<mat-form-field class=\"example-half-width\">\n\t\t\t\t\t\t\t\t\t\t\t<input aria-label=\"City\" matInput placeholder=\"\">\n\t\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t\t\t<br>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-md-4\">\n\t\t\t\t\t\t\t\t\t\t<strong>State</strong><br>\n\t\t\t\t\t\t\t\t\t\t<mat-form-field class=\"example-half-width\">\n\t\t\t\t\t\t\t\t\t\t\t<input aria-label=\"State\" matInput placeholder=\"\">\n\t\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t\t\t<br>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-md-4\">\n\t\t\t\t\t\t\t\t\t\t<strong>Country</strong><br>\n\t\t\t\t\t\t\t\t\t\t<mat-form-field class=\"example-half-width\">\n\t\t\t\t\t\t\t\t\t\t\t<input aria-label=\"Country\" matInput placeholder=\"\">\n\t\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t\t\t<br>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t<div class=\"col-md-6\">\n\t\t\t\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t\t\t\t<p>Phone Number</p>\n\t\t\t\t\t\t\t\t\t\t\t<input placeholder=\"Mobile Phone\" type=\"tel\">\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-md-6\">\n\t\t\t\t\t\t\t\t\t\t<p>Customer email-id</p>\n\t\t\t\t\t\t\t\t\t\t<mat-form-field class=\"example-half-width\">\n\t\t\t\t\t\t\t\t\t\t\t<input aria-label=\"Enter email-id\" matInput placeholder=\"\">\n\t\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t\t\t<br>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t\t<p>Upload Invoice</p>\n\t\t\t\t\t\t\t\t\t<form action=\"/action_page.php\">\n\t\t\t\t\t\t\t\t\t\t<input id=\"myFile\" name=\"filename\" type=\"file\">\n\t\t\t\t\t\t\t\t\t</form>\n\t\t\t\t\t\t\t\t\t<p><span style=\"color: orange;\"><em>A4 in pdf format</em></span></p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"text-center\">\n\t\t\t\t\t\t\t\t<button (click)=\"onSubmit()\" [disabled]=\"viewLoading\" class=\"col-md-1\" color=\"primary\"\n\t\t\t\t\t\t\t\t\t\tmat-raised-button matTooltip=\"Go Back\" type=\"button\">\n\t\t\t\t\t\t\t\t\tGo Back\n\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</ng-template>\n\t\t\t\t</mat-tab>\n\t\t\t</mat-tab-group>\n\t\t</kt-portlet-body>\n\t</kt-portlet>\n</ng-container>\n"
 
 /***/ }),
 
@@ -1167,6 +1167,17 @@ module.exports = "<!-- begin:: Brand -->\r\n<div class=\"kt-aside__brand kt-grid
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/index.js!./src/app/views/theme/content/builder/builder.component.html":
+/*!**********************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/views/theme/content/builder/builder.component.html ***!
+  \**********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<ng-container>\r\n\t<div>\r\n\t\t<!--<kt-portlet-header [title]=\"'CREATE ORDER'\"></kt-portlet-header>-->\r\n\t\t<br><br>\r\n\t</div>\r\n\t<kt-portlet>\r\n\t\t<kt-portlet-body>\r\n<div class=\"content\">\r\n\t<div class=\"row\">\r\n\t\t<div class=\"col-xs-12\">\r\n\t\t\t<div class=\"block block-transparent\">\r\n\t\t\t\t<div class=\"block-content\">\r\n\t\t\t\t\t<div class=\"js-wizard-validation block\" data-ng-class=\"{\r\n                  'block-opt-without-loader-icon': showLoader,\r\n                  }\">\r\n\t\t\t\t\t\t<!-- Large Screens -->\r\n\t\t\t\t\t\t<div ng-if=\"includeDesktopTemplate\" class=\"row row-eq-height ng-scope\">\r\n\t\t\t\t\t\t\t<!-- Thumbnails -->\r\n\t\t\t\t\t\t\t<div class=\"col-md-1\">\r\n\t\t\t\t\t\t\t\t<div id=\"SpecialProductNavDiv\">\r\n\t\t\t\t\t\t\t\t\t<!-- ngIf: showSpecial && showBack -->\r\n\t\t\t\t\t\t\t\t\t<div ng-if=\"showSpecial &amp;&amp; showBack\" class=\"row ng-scope\">\r\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-md-12 text-center push-10\">\r\n\t\t\t\t\t\t\t\t\t\t\t<a role=\"button\" ng-click=\"showView(0)\" data-uib-tooltip=\"Front\" data-tooltip-placement=\"right\">\r\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"img-container design-thumbnail-div animated fadeIn shadow\" data-ng-class=\"{\r\n                                       'shadow': showDesignButton == 0,\r\n                                       }\">\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t<img id=\"front-thumbnail\" src=\"https://datacenter.printrove.com/mockup_layouts_img/315.jpg\" class=\"img-responsive\">\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"img-options\">\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"img-options-content\">\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t\t\t\t</a>\r\n\t\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t\t<!-- end ngIf: showSpecial && showBack -->\r\n\t\t\t\t\t\t\t\t\t<!-- ngIf: showSpecial && showBack -->\r\n\t\t\t\t\t\t\t\t\t<div ng-if=\"showSpecial &amp;&amp; showBack\" class=\"row ng-scope\">\r\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-md-12 text-center\">\r\n\t\t\t\t\t\t\t\t\t\t\t<a role=\"button\" ng-click=\"showView(1)\" data-uib-tooltip=\"Back\" data-tooltip-placement=\"right\">\r\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"img-container design-thumbnail-div animated fadeIn\" data-ng-class=\"{\r\n                                       'shadow': showDesignButton == 1,\r\n                                       }\">\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t<img id=\"back-thumbnail\" src=\"https://datacenter.printrove.com/mockup_layouts_img/back-315.jpg\" class=\"img-responsive\">\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"img-options\">\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"img-options-content\">\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t\t\t\t</a>\r\n\t\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t\t<!-- end ngIf: showSpecial && showBack -->\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<!-- FPD Wrapper -->\r\n\t\t\t\t\t\t\t<div class=\"col-md-6\" id=\"DesginCustomiserDiv\">\r\n\t\t\t\t\t\t\t\t<div class=\"row push-30 text-center ng-scope\" ng-if=\"showDesignButton == 0\" id=\"AddDesgignDiv\">\r\n\t\t\t\t\t\t\t\t\t<div ng-if=\"showAddDesign\" class=\"col-md-10 col-md-offset-1 border-b ng-scope\">\r\n\t\t\t\t\t\t\t\t\t\t<button (click)=\"openDesignModal()\" [ngClass]=\"{'kt-spinner kt-spinner--right kt-spinner--md kt-spinner--light': loading}\"\r\n\t\t\t\t\t\t\t\t\t\t\t\tid=\"kt_login_signin_submit\"\r\n\t\t\t\t\t\t\t\t\t\t\t\tclass=\"btn btn-primary btn-elevate kt-login__btn-primary\">Add Design</button>\r\n\r\n\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t<div #someVar id=\"designer\" class=\"fpd-container fpd-shadow-1 fpd-topbar fpd-tabs fpd-tabs-side fpd-top-actions-centered fpd-bottom-actions-centered fpd-views-inside-left\">\r\n\t\t\t\t\t\t\t\t\t<div class=\"fpd-product\" title=\"Front\" data-thumbnail=\"https://datacenter.printrove.com/mockup_layouts_img/315.jpg\">\r\n\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</div>\r\n</div>\r\n\t\t</kt-portlet-body>\r\n\t</kt-portlet>\r\n</ng-container>\r\n"
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/index.js!./src/app/views/theme/content/error-page/error-page.component.html":
 /*!****************************************************************************************************!*\
   !*** ./node_modules/raw-loader!./src/app/views/theme/content/error-page/error-page.component.html ***!
@@ -1329,7 +1340,7 @@ var routes = [
             },
             {
                 path: 'builder',
-                loadChildren: function () { return __webpack_require__.e(/*! import() | app-views-theme-content-builder-builder-module */ "app-views-theme-content-builder-builder-module").then(__webpack_require__.bind(null, /*! app/views/theme/content/builder/builder.module */ "./src/app/views/theme/content/builder/builder.module.ts")).then(function (m) { return m.BuilderModule; }); },
+                loadChildren: function () { return Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! app/views/theme/content/builder/builder.module */ "./src/app/views/theme/content/builder/builder.module.ts")).then(function (m) { return m.BuilderModule; }); },
             },
             {
                 path: 'error/403',
@@ -17349,6 +17360,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mockup_mockup_component__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./mockup/mockup.component */ "./src/app/views/pages/apps/e-commerce/mockup/mockup.component.ts");
 /* harmony import */ var _support_support_component__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./support/support.component */ "./src/app/views/pages/apps/e-commerce/support/support.component.ts");
 /* harmony import */ var _product_view_product_view_component__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./product-view/product-view.component */ "./src/app/views/pages/apps/e-commerce/product-view/product-view.component.ts");
+/* harmony import */ var _theme_content_builder_builder_component__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ../../../theme/content/builder/builder.component */ "./src/app/views/theme/content/builder/builder.component.ts");
+/* harmony import */ var _theme_content_builder_builder_module__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ../../../theme/content/builder/builder.module */ "./src/app/views/theme/content/builder/builder.module.ts");
 
 // Angular
 
@@ -17406,89 +17419,91 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
 // tslint:disable-next-line:class-name
 var routes = [
     {
-        path: '',
+        path: "",
         component: _e_commerce_component__WEBPACK_IMPORTED_MODULE_16__["ECommerceComponent"],
         // canActivate: [ModuleGuard],
         // data: { moduleName: 'ecommerce' },
         children: [
             {
-                path: '',
-                redirectTo: 'customers',
-                pathMatch: 'full'
+                path: "",
+                redirectTo: "customers",
+                pathMatch: "full",
             },
             {
-                path: 'customers',
-                component: _customers_customers_list_customers_list_component__WEBPACK_IMPORTED_MODULE_17__["CustomersListComponent"]
+                path: "customers",
+                component: _customers_customers_list_customers_list_component__WEBPACK_IMPORTED_MODULE_17__["CustomersListComponent"],
             },
             {
-                path: 'orders',
-                component: _orders_orders_list_orders_list_component__WEBPACK_IMPORTED_MODULE_25__["OrdersListComponent"]
+                path: "orders",
+                component: _orders_orders_list_orders_list_component__WEBPACK_IMPORTED_MODULE_25__["OrdersListComponent"],
             },
             {
-                path: 'orders/stocks',
-                component: _orders_stock_list_stock_list_component__WEBPACK_IMPORTED_MODULE_31__["StockListComponent"]
+                path: "orders/stocks",
+                component: _orders_stock_list_stock_list_component__WEBPACK_IMPORTED_MODULE_31__["StockListComponent"],
             },
             {
-                path: 'products',
+                path: "products",
                 component: _products_products_list_products_list_component__WEBPACK_IMPORTED_MODULE_20__["ProductsListComponent"],
             },
             {
-                path: 'orders/add',
-                component: _products_product_edit_product_edit_component__WEBPACK_IMPORTED_MODULE_21__["ProductEditComponent"]
+                path: "orders/add",
+                component: _products_product_edit_product_edit_component__WEBPACK_IMPORTED_MODULE_21__["ProductEditComponent"],
             },
             {
-                path: 'orders/view',
-                component: _product_view_product_view_component__WEBPACK_IMPORTED_MODULE_41__["ProductViewComponent"]
+                path: "orders/view",
+                component: _product_view_product_view_component__WEBPACK_IMPORTED_MODULE_41__["ProductViewComponent"],
             },
             {
-                path: 'products/edit',
-                component: _products_product_edit_product_edit_component__WEBPACK_IMPORTED_MODULE_21__["ProductEditComponent"]
+                path: "products/edit",
+                component: _products_product_edit_product_edit_component__WEBPACK_IMPORTED_MODULE_21__["ProductEditComponent"],
             },
             {
-                path: 'products/edit/:id',
-                component: _products_product_edit_product_edit_component__WEBPACK_IMPORTED_MODULE_21__["ProductEditComponent"]
+                path: "products/edit/:id",
+                component: _products_product_edit_product_edit_component__WEBPACK_IMPORTED_MODULE_21__["ProductEditComponent"],
             },
             {
-                path: 'orders/returns',
-                component: _orders_manage_returns_manage_returns_component__WEBPACK_IMPORTED_MODULE_32__["ManageReturnsComponent"]
+                path: "orders/returns",
+                component: _orders_manage_returns_manage_returns_component__WEBPACK_IMPORTED_MODULE_32__["ManageReturnsComponent"],
             },
             {
-                path: 'products/add',
-                component: _products_product_add_product_add_component__WEBPACK_IMPORTED_MODULE_19__["ProductAddComponent"]
+                path: "products/add",
+                component: _products_product_add_product_add_component__WEBPACK_IMPORTED_MODULE_19__["ProductAddComponent"],
             },
             {
-                path: 'products/manage',
-                component: _products_products_manage_products_manage_component__WEBPACK_IMPORTED_MODULE_33__["ProductsManageComponent"]
+                path: "products/manage",
+                component: _products_products_manage_products_manage_component__WEBPACK_IMPORTED_MODULE_33__["ProductsManageComponent"],
             },
             {
-                path: 'billing',
-                component: _billing_billing_component__WEBPACK_IMPORTED_MODULE_36__["BillingComponent"]
+                path: "billing",
+                component: _billing_billing_component__WEBPACK_IMPORTED_MODULE_36__["BillingComponent"],
             },
             {
-                path: 'profile',
-                component: _profile_profile_component__WEBPACK_IMPORTED_MODULE_37__["ProfileComponent"]
+                path: "profile",
+                component: _profile_profile_component__WEBPACK_IMPORTED_MODULE_37__["ProfileComponent"],
             },
             {
-                path: 'orders/store',
-                component: _orders_store_order_store_order_component__WEBPACK_IMPORTED_MODULE_38__["StoreOrderComponent"]
+                path: "orders/store",
+                component: _orders_store_order_store_order_component__WEBPACK_IMPORTED_MODULE_38__["StoreOrderComponent"],
             },
             {
-                path: 'orders/mockup',
-                component: _mockup_mockup_component__WEBPACK_IMPORTED_MODULE_39__["MockupComponent"]
+                path: "orders/mockup",
+                component: _mockup_mockup_component__WEBPACK_IMPORTED_MODULE_39__["MockupComponent"],
             },
             {
-                path: 'support',
-                component: _support_support_component__WEBPACK_IMPORTED_MODULE_40__["SupportComponent"]
+                path: "support",
+                component: _support_support_component__WEBPACK_IMPORTED_MODULE_40__["SupportComponent"],
             },
             {
-                path: 'orders/:orderID',
-                component: _product_view_product_view_component__WEBPACK_IMPORTED_MODULE_41__["ProductViewComponent"]
-            }
-        ]
-    }
+                path: "orders/:orderID",
+                component: _product_view_product_view_component__WEBPACK_IMPORTED_MODULE_41__["ProductViewComponent"],
+            },
+        ],
+    },
 ];
 var ECommerceModule = /** @class */ (function () {
     function ECommerceModule() {
@@ -17525,20 +17540,23 @@ var ECommerceModule = /** @class */ (function () {
                 _angular_material__WEBPACK_IMPORTED_MODULE_27__["MatTabsModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_27__["MatTooltipModule"],
                 _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_29__["NgbProgressbarModule"],
-                _environments_environment__WEBPACK_IMPORTED_MODULE_28__["environment"].isMockEnabled ? angular_in_memory_web_api__WEBPACK_IMPORTED_MODULE_6__["HttpClientInMemoryWebApiModule"].forFeature(_core_base_layout__WEBPACK_IMPORTED_MODULE_11__["FakeApiService"], {
-                    passThruUnknownUrl: true,
-                    dataEncapsulation: false
-                }) : [],
-                _ngrx_store__WEBPACK_IMPORTED_MODULE_8__["StoreModule"].forFeature('products', _core_e_commerce__WEBPACK_IMPORTED_MODULE_13__["productsReducer"]),
+                _environments_environment__WEBPACK_IMPORTED_MODULE_28__["environment"].isMockEnabled
+                    ? angular_in_memory_web_api__WEBPACK_IMPORTED_MODULE_6__["HttpClientInMemoryWebApiModule"].forFeature(_core_base_layout__WEBPACK_IMPORTED_MODULE_11__["FakeApiService"], {
+                        passThruUnknownUrl: true,
+                        dataEncapsulation: false,
+                    })
+                    : [],
+                _ngrx_store__WEBPACK_IMPORTED_MODULE_8__["StoreModule"].forFeature("products", _core_e_commerce__WEBPACK_IMPORTED_MODULE_13__["productsReducer"]),
                 _ngrx_effects__WEBPACK_IMPORTED_MODULE_9__["EffectsModule"].forFeature([_core_e_commerce__WEBPACK_IMPORTED_MODULE_13__["ProductEffects"]]),
-                _ngrx_store__WEBPACK_IMPORTED_MODULE_8__["StoreModule"].forFeature('customers', _core_e_commerce__WEBPACK_IMPORTED_MODULE_13__["customersReducer"]),
+                _ngrx_store__WEBPACK_IMPORTED_MODULE_8__["StoreModule"].forFeature("customers", _core_e_commerce__WEBPACK_IMPORTED_MODULE_13__["customersReducer"]),
                 _ngrx_effects__WEBPACK_IMPORTED_MODULE_9__["EffectsModule"].forFeature([_core_e_commerce__WEBPACK_IMPORTED_MODULE_13__["CustomerEffects"]]),
-                _ngrx_store__WEBPACK_IMPORTED_MODULE_8__["StoreModule"].forFeature('productRemarks', _core_e_commerce__WEBPACK_IMPORTED_MODULE_13__["productRemarksReducer"]),
+                _ngrx_store__WEBPACK_IMPORTED_MODULE_8__["StoreModule"].forFeature("productRemarks", _core_e_commerce__WEBPACK_IMPORTED_MODULE_13__["productRemarksReducer"]),
                 _ngrx_effects__WEBPACK_IMPORTED_MODULE_9__["EffectsModule"].forFeature([_core_e_commerce__WEBPACK_IMPORTED_MODULE_13__["ProductRemarkEffects"]]),
-                _ngrx_store__WEBPACK_IMPORTED_MODULE_8__["StoreModule"].forFeature('productSpecifications', _core_e_commerce__WEBPACK_IMPORTED_MODULE_13__["productSpecificationsReducer"]),
+                _ngrx_store__WEBPACK_IMPORTED_MODULE_8__["StoreModule"].forFeature("productSpecifications", _core_e_commerce__WEBPACK_IMPORTED_MODULE_13__["productSpecificationsReducer"]),
                 _ngrx_effects__WEBPACK_IMPORTED_MODULE_9__["EffectsModule"].forFeature([_core_e_commerce__WEBPACK_IMPORTED_MODULE_13__["ProductSpecificationEffects"]]),
                 ngx_perfect_scrollbar__WEBPACK_IMPORTED_MODULE_34__["PerfectScrollbarModule"],
-                ngx_ui_switch__WEBPACK_IMPORTED_MODULE_35__["UiSwitchModule"]
+                ngx_ui_switch__WEBPACK_IMPORTED_MODULE_35__["UiSwitchModule"],
+                _theme_content_builder_builder_module__WEBPACK_IMPORTED_MODULE_43__["BuilderModule"],
             ],
             providers: [
                 _core_auth__WEBPACK_IMPORTED_MODULE_12__["ModuleGuard"],
@@ -17546,16 +17564,16 @@ var ECommerceModule = /** @class */ (function () {
                 {
                     provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HTTP_INTERCEPTORS"],
                     useClass: _core_base_crud__WEBPACK_IMPORTED_MODULE_14__["InterceptService"],
-                    multi: true
+                    multi: true,
                 },
                 {
                     provide: _angular_material__WEBPACK_IMPORTED_MODULE_27__["MAT_DIALOG_DEFAULT_OPTIONS"],
                     useValue: {
                         hasBackdrop: true,
-                        panelClass: 'kt-mat-dialog-container__wrapper',
-                        height: 'auto',
-                        width: '900px'
-                    }
+                        panelClass: "kt-mat-dialog-container__wrapper",
+                        height: "auto",
+                        width: "900px",
+                    },
                 },
                 _core_base_crud__WEBPACK_IMPORTED_MODULE_14__["TypesUtilsService"],
                 _core_base_crud__WEBPACK_IMPORTED_MODULE_14__["LayoutUtilsService"],
@@ -17565,7 +17583,7 @@ var ECommerceModule = /** @class */ (function () {
                 _core_e_commerce__WEBPACK_IMPORTED_MODULE_13__["ProductSpecificationsService"],
                 _core_e_commerce__WEBPACK_IMPORTED_MODULE_13__["ProductsService"],
                 _core_base_crud__WEBPACK_IMPORTED_MODULE_14__["TypesUtilsService"],
-                _core_base_crud__WEBPACK_IMPORTED_MODULE_14__["LayoutUtilsService"]
+                _core_base_crud__WEBPACK_IMPORTED_MODULE_14__["LayoutUtilsService"],
             ],
             entryComponents: [
                 _partials_content_crud__WEBPACK_IMPORTED_MODULE_15__["ActionNotificationComponent"],
@@ -17573,7 +17591,8 @@ var ECommerceModule = /** @class */ (function () {
                 _partials_content_crud__WEBPACK_IMPORTED_MODULE_15__["DeleteEntityDialogComponent"],
                 _partials_content_crud__WEBPACK_IMPORTED_MODULE_15__["FetchEntityDialogComponent"],
                 _partials_content_crud__WEBPACK_IMPORTED_MODULE_15__["UpdateStatusDialogComponent"],
-                _products_subs_specifications_specification_edit_specification_edit_dialog_component__WEBPACK_IMPORTED_MODULE_24__["SpecificationEditDialogComponent"]
+                _products_subs_specifications_specification_edit_specification_edit_dialog_component__WEBPACK_IMPORTED_MODULE_24__["SpecificationEditDialogComponent"],
+                _theme_content_builder_builder_component__WEBPACK_IMPORTED_MODULE_42__["BuilderComponent"],
             ],
             declarations: [
                 _e_commerce_component__WEBPACK_IMPORTED_MODULE_16__["ECommerceComponent"],
@@ -17598,8 +17617,8 @@ var ECommerceModule = /** @class */ (function () {
                 _orders_store_order_store_order_component__WEBPACK_IMPORTED_MODULE_38__["StoreOrderComponent"],
                 _mockup_mockup_component__WEBPACK_IMPORTED_MODULE_39__["MockupComponent"],
                 _support_support_component__WEBPACK_IMPORTED_MODULE_40__["SupportComponent"],
-                _product_view_product_view_component__WEBPACK_IMPORTED_MODULE_41__["ProductViewComponent"]
-            ]
+                _product_view_product_view_component__WEBPACK_IMPORTED_MODULE_41__["ProductViewComponent"],
+            ],
         })
     ], ECommerceModule);
     return ECommerceModule;
@@ -19000,6 +19019,17 @@ var ProductAddComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/views/pages/apps/e-commerce/products/product-edit/product-edit.component.css":
+/*!**********************************************************************************************!*\
+  !*** ./src/app/views/pages/apps/e-commerce/products/product-edit/product-edit.component.css ***!
+  \**********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n.tooltipNew {\n\tposition: relative;\n\tdisplay: inline-block;\n}\n\n\n/* Tooltip text */\n\n\n.tooltipNew .tooltiptext {\n\tvisibility: hidden;\n\twidth: 120px;\n\tbackground-color: #555;\n\tcolor: #fff;\n\ttext-align: center;\n\tpadding: 5px 0;\n\tborder-radius: 6px;\n\n\t/* Position the tooltip text */\n\tposition: absolute;\n\tz-index: 1;\n\tbottom: 125%;\n\tleft: 50%;\n\tmargin-left: -60px;\n\n\t/* Fade in tooltip */\n\topacity: 0;\n\ttransition: opacity 0.3s;\n}\n\n\n/* Tooltip arrow */\n\n\n.tooltipNew .tooltiptext::after {\n\tcontent: \"\";\n\tposition: absolute;\n\ttop: 100%;\n\tleft: 50%;\n\tmargin-left: -5px;\n\tborder-width: 5px;\n\tborder-style: solid;\n\tborder-color: #555 transparent transparent transparent;\n}\n\n\n/* Show the tooltip text when you mouse over the tooltip container */\n\n\n.tooltipNew:hover .tooltiptext {\n\tvisibility: visible;\n\topacity: 1;\n}\n\n\n.container {\n\tdisplay: block;\n\tposition: relative;\n\tpadding-left: 35px;\n\tmargin-bottom: 12px;\n\tcursor: pointer;\n\tfont-size: 22px;\n\t-webkit-user-select: none;\n\t-moz-user-select: none;\n\t-ms-user-select: none;\n\tuser-select: none;\n}\n\n\n/* Hide the browser's default checkbox */\n\n\n.container input {\n\tposition: absolute;\n\topacity: 0;\n\tcursor: pointer;\n\theight: 0;\n\twidth: 0;\n}\n\n\n/* Create a custom checkbox */\n\n\n.checkmark {\n\tposition: absolute;\n\ttop: 0;\n\tleft: 0;\n\theight: 25px;\n\twidth: 25px;\n\t/*background-color: rgb(224 105 105);*/\n}\n\n\n/* On mouse-over, add a grey background color */\n\n\n.container:hover input ~ .checkmark {\n\t/*background-color: #ccc;*/\n}\n\n\n/* When the checkbox is checked, add a blue background */\n\n\n.container input:checked ~ .checkmark {\n\t/*background-color: #2196F3;*/\n}\n\n\n/* Create the checkmark/indicator (hidden when not checked) */\n\n\n.checkmark:after {\n\tcontent: \"\";\n\tposition: absolute;\n\tdisplay: none;\n}\n\n\n/* Show the checkmark when checked */\n\n\n.container input:checked ~ .checkmark:after {\n\tdisplay: block;\n}\n\n\n/* Style the checkmark/indicator */\n\n\n.container .checkmark:after {\n\tleft: 9px;\n\ttop: 5px;\n\twidth: 5px;\n\theight: 10px;\n\tborder: solid white;\n\tborder-width: 0 3px 3px 0;\n\t-webkit-transform: rotate(45deg);\n\ttransform: rotate(45deg);\n}\n\n\n.product-size-padding-top{\n\tpadding-top:45px;\n}\n\n\n.img-container {\n\tposition: relative;\n\toverflow: hidden;\n\tz-index: 0;\n\tdisplay: block;\n}\n\n\n.img-container .img-options {\n\tposition: absolute;\n\ttop: 0;\n\tright: 0;\n\tbottom: 0;\n\tleft: 0;\n\tz-index: 1;\n\tcontent: \"\";\n\tbackground-color: rgba(0, 0, 0, 0.6);\n\topacity: 0;\n\tvisibility: hidden;\n\ttransition: all 0.25s ease-out;\n}\n\n\n.img-container .img-options-content {\n\tposition: absolute;\n\ttop: 50%;\n\t-webkit-transform: translateY(-50%);\n\ttransform: translateY(-50%);\n\tright: 0;\n\tleft: 0;\n\ttext-align: center;\n}\n\n\n.img-container > img {\n\ttransition: -webkit-transform 0.35s ease-out;\n\ttransition: transform 0.35s ease-out;\n\ttransition: transform 0.35s ease-out, -webkit-transform 0.35s ease-out;\n}\n\n\n.img-container:hover .img-options {\n\topacity: 1;\n\tvisibility: visible;\n}\n\n\n@media screen and (max-width: 767px) {\n\t.img-container .img-options {\n\t\tdisplay: none;\n\t}\n\t.img-container:hover .img-options {\n\t\tdisplay: block;\n\t}\n}\n\n\n.img-container.fx-opt-slide-top .img-options {\n\t-webkit-transform: translateY(100%);\n\ttransform: translateY(100%);\n}\n\n\n.img-container.fx-opt-slide-top:hover .img-options {\n\t-webkit-transform: translateY(0);\n\ttransform: translateY(0);\n}\n\n\n.img-container.fx-opt-slide-right .img-options {\n\t-webkit-transform: translateX(-100%);\n\ttransform: translateX(-100%);\n}\n\n\n.img-container.fx-opt-slide-right:hover .img-options {\n\t-webkit-transform: translateX(0);\n\ttransform: translateX(0);\n}\n\n\n.img-container.fx-opt-slide-down .img-options {\n\t-webkit-transform: translateY(-100%);\n\ttransform: translateY(-100%);\n}\n\n\n.img-container.fx-opt-slide-down:hover .img-options {\n\t-webkit-transform: translateY(0);\n\ttransform: translateY(0);\n}\n\n\n.img-container.fx-opt-slide-left .img-options {\n\t-webkit-transform: translateX(100%);\n\ttransform: translateX(100%);\n}\n\n\n.img-container.fx-opt-slide-left:hover .img-options {\n\t-webkit-transform: translateX(0);\n\ttransform: translateX(0);\n}\n\n\n.img-container.fx-opt-zoom-in .img-options {\n\t-webkit-transform: scale(0);\n\ttransform: scale(0);\n}\n\n\n.img-container.fx-opt-zoom-in:hover .img-options {\n\t-webkit-transform: scale(1);\n\ttransform: scale(1);\n}\n\n\n.img-container.fx-opt-zoom-out .img-options {\n\t-webkit-transform: scale(2);\n\ttransform: scale(2);\n}\n\n\n.img-container.fx-opt-zoom-out:hover .img-options {\n\t-webkit-transform: scale(1);\n\ttransform: scale(1);\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdmlld3MvcGFnZXMvYXBwcy9lLWNvbW1lcmNlL3Byb2R1Y3RzL3Byb2R1Y3QtZWRpdC9wcm9kdWN0LWVkaXQuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQ0E7Q0FDQyxrQkFBa0I7Q0FDbEIscUJBQXFCO0FBQ3RCOzs7QUFHQSxpQkFBaUI7OztBQUNqQjtDQUNDLGtCQUFrQjtDQUNsQixZQUFZO0NBQ1osc0JBQXNCO0NBQ3RCLFdBQVc7Q0FDWCxrQkFBa0I7Q0FDbEIsY0FBYztDQUNkLGtCQUFrQjs7Q0FFbEIsOEJBQThCO0NBQzlCLGtCQUFrQjtDQUNsQixVQUFVO0NBQ1YsWUFBWTtDQUNaLFNBQVM7Q0FDVCxrQkFBa0I7O0NBRWxCLG9CQUFvQjtDQUNwQixVQUFVO0NBQ1Ysd0JBQXdCO0FBQ3pCOzs7QUFHQSxrQkFBa0I7OztBQUNsQjtDQUNDLFdBQVc7Q0FDWCxrQkFBa0I7Q0FDbEIsU0FBUztDQUNULFNBQVM7Q0FDVCxpQkFBaUI7Q0FDakIsaUJBQWlCO0NBQ2pCLG1CQUFtQjtDQUNuQixzREFBc0Q7QUFDdkQ7OztBQUVBLG9FQUFvRTs7O0FBQ3BFO0NBQ0MsbUJBQW1CO0NBQ25CLFVBQVU7QUFDWDs7O0FBRUE7Q0FDQyxjQUFjO0NBQ2Qsa0JBQWtCO0NBQ2xCLGtCQUFrQjtDQUNsQixtQkFBbUI7Q0FDbkIsZUFBZTtDQUNmLGVBQWU7Q0FDZix5QkFBeUI7Q0FDekIsc0JBQXNCO0NBQ3RCLHFCQUFxQjtDQUNyQixpQkFBaUI7QUFDbEI7OztBQUVBLHdDQUF3Qzs7O0FBQ3hDO0NBQ0Msa0JBQWtCO0NBQ2xCLFVBQVU7Q0FDVixlQUFlO0NBQ2YsU0FBUztDQUNULFFBQVE7QUFDVDs7O0FBRUEsNkJBQTZCOzs7QUFDN0I7Q0FDQyxrQkFBa0I7Q0FDbEIsTUFBTTtDQUNOLE9BQU87Q0FDUCxZQUFZO0NBQ1osV0FBVztDQUNYLHNDQUFzQztBQUN2Qzs7O0FBRUEsK0NBQStDOzs7QUFDL0M7Q0FDQywwQkFBMEI7QUFDM0I7OztBQUVBLHdEQUF3RDs7O0FBQ3hEO0NBQ0MsNkJBQTZCO0FBQzlCOzs7QUFFQSw2REFBNkQ7OztBQUM3RDtDQUNDLFdBQVc7Q0FDWCxrQkFBa0I7Q0FDbEIsYUFBYTtBQUNkOzs7QUFFQSxvQ0FBb0M7OztBQUNwQztDQUNDLGNBQWM7QUFDZjs7O0FBRUEsa0NBQWtDOzs7QUFDbEM7Q0FDQyxTQUFTO0NBQ1QsUUFBUTtDQUNSLFVBQVU7Q0FDVixZQUFZO0NBQ1osbUJBQW1CO0NBQ25CLHlCQUF5QjtDQUN6QixnQ0FBZ0M7Q0FFaEMsd0JBQXdCO0FBQ3pCOzs7QUFFQTtDQUNDLGdCQUFnQjtBQUNqQjs7O0FBRUE7Q0FDQyxrQkFBa0I7Q0FDbEIsZ0JBQWdCO0NBQ2hCLFVBQVU7Q0FDVixjQUFjO0FBQ2Y7OztBQUVBO0NBQ0Msa0JBQWtCO0NBQ2xCLE1BQU07Q0FDTixRQUFRO0NBQ1IsU0FBUztDQUNULE9BQU87Q0FDUCxVQUFVO0NBQ1YsV0FBVztDQUNYLG9DQUFvQztDQUNwQyxVQUFVO0NBQ1Ysa0JBQWtCO0NBRWxCLDhCQUE4QjtBQUMvQjs7O0FBQ0E7Q0FDQyxrQkFBa0I7Q0FDbEIsUUFBUTtDQUNSLG1DQUFtQztDQUVuQywyQkFBMkI7Q0FDM0IsUUFBUTtDQUNSLE9BQU87Q0FDUCxrQkFBa0I7QUFDbkI7OztBQUNBO0NBRUMsNENBQW9DO0NBQXBDLG9DQUFvQztDQUFwQyxzRUFBb0M7QUFDckM7OztBQUNBO0NBQ0MsVUFBVTtDQUNWLG1CQUFtQjtBQUNwQjs7O0FBQ0E7Q0FDQztFQUNDLGFBQWE7Q0FDZDtDQUNBO0VBQ0MsY0FBYztDQUNmO0FBQ0Q7OztBQUdBO0NBQ0MsbUNBQW1DO0NBRW5DLDJCQUEyQjtBQUM1Qjs7O0FBQ0E7Q0FDQyxnQ0FBZ0M7Q0FFaEMsd0JBQXdCO0FBQ3pCOzs7QUFDQTtDQUNDLG9DQUFvQztDQUVwQyw0QkFBNEI7QUFDN0I7OztBQUNBO0NBQ0MsZ0NBQWdDO0NBRWhDLHdCQUF3QjtBQUN6Qjs7O0FBQ0E7Q0FDQyxvQ0FBb0M7Q0FFcEMsNEJBQTRCO0FBQzdCOzs7QUFDQTtDQUNDLGdDQUFnQztDQUVoQyx3QkFBd0I7QUFDekI7OztBQUNBO0NBQ0MsbUNBQW1DO0NBRW5DLDJCQUEyQjtBQUM1Qjs7O0FBQ0E7Q0FDQyxnQ0FBZ0M7Q0FFaEMsd0JBQXdCO0FBQ3pCOzs7QUFDQTtDQUNDLDJCQUEyQjtDQUUzQixtQkFBbUI7QUFDcEI7OztBQUNBO0NBQ0MsMkJBQTJCO0NBRTNCLG1CQUFtQjtBQUNwQjs7O0FBQ0E7Q0FDQywyQkFBMkI7Q0FFM0IsbUJBQW1CO0FBQ3BCOzs7QUFDQTtDQUNDLDJCQUEyQjtDQUUzQixtQkFBbUI7QUFDcEIiLCJmaWxlIjoic3JjL2FwcC92aWV3cy9wYWdlcy9hcHBzL2UtY29tbWVyY2UvcHJvZHVjdHMvcHJvZHVjdC1lZGl0L3Byb2R1Y3QtZWRpdC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiXG4udG9vbHRpcE5ldyB7XG5cdHBvc2l0aW9uOiByZWxhdGl2ZTtcblx0ZGlzcGxheTogaW5saW5lLWJsb2NrO1xufVxuXG5cbi8qIFRvb2x0aXAgdGV4dCAqL1xuLnRvb2x0aXBOZXcgLnRvb2x0aXB0ZXh0IHtcblx0dmlzaWJpbGl0eTogaGlkZGVuO1xuXHR3aWR0aDogMTIwcHg7XG5cdGJhY2tncm91bmQtY29sb3I6ICM1NTU7XG5cdGNvbG9yOiAjZmZmO1xuXHR0ZXh0LWFsaWduOiBjZW50ZXI7XG5cdHBhZGRpbmc6IDVweCAwO1xuXHRib3JkZXItcmFkaXVzOiA2cHg7XG5cblx0LyogUG9zaXRpb24gdGhlIHRvb2x0aXAgdGV4dCAqL1xuXHRwb3NpdGlvbjogYWJzb2x1dGU7XG5cdHotaW5kZXg6IDE7XG5cdGJvdHRvbTogMTI1JTtcblx0bGVmdDogNTAlO1xuXHRtYXJnaW4tbGVmdDogLTYwcHg7XG5cblx0LyogRmFkZSBpbiB0b29sdGlwICovXG5cdG9wYWNpdHk6IDA7XG5cdHRyYW5zaXRpb246IG9wYWNpdHkgMC4zcztcbn1cblxuXG4vKiBUb29sdGlwIGFycm93ICovXG4udG9vbHRpcE5ldyAudG9vbHRpcHRleHQ6OmFmdGVyIHtcblx0Y29udGVudDogXCJcIjtcblx0cG9zaXRpb246IGFic29sdXRlO1xuXHR0b3A6IDEwMCU7XG5cdGxlZnQ6IDUwJTtcblx0bWFyZ2luLWxlZnQ6IC01cHg7XG5cdGJvcmRlci13aWR0aDogNXB4O1xuXHRib3JkZXItc3R5bGU6IHNvbGlkO1xuXHRib3JkZXItY29sb3I6ICM1NTUgdHJhbnNwYXJlbnQgdHJhbnNwYXJlbnQgdHJhbnNwYXJlbnQ7XG59XG5cbi8qIFNob3cgdGhlIHRvb2x0aXAgdGV4dCB3aGVuIHlvdSBtb3VzZSBvdmVyIHRoZSB0b29sdGlwIGNvbnRhaW5lciAqL1xuLnRvb2x0aXBOZXc6aG92ZXIgLnRvb2x0aXB0ZXh0IHtcblx0dmlzaWJpbGl0eTogdmlzaWJsZTtcblx0b3BhY2l0eTogMTtcbn1cblxuLmNvbnRhaW5lciB7XG5cdGRpc3BsYXk6IGJsb2NrO1xuXHRwb3NpdGlvbjogcmVsYXRpdmU7XG5cdHBhZGRpbmctbGVmdDogMzVweDtcblx0bWFyZ2luLWJvdHRvbTogMTJweDtcblx0Y3Vyc29yOiBwb2ludGVyO1xuXHRmb250LXNpemU6IDIycHg7XG5cdC13ZWJraXQtdXNlci1zZWxlY3Q6IG5vbmU7XG5cdC1tb3otdXNlci1zZWxlY3Q6IG5vbmU7XG5cdC1tcy11c2VyLXNlbGVjdDogbm9uZTtcblx0dXNlci1zZWxlY3Q6IG5vbmU7XG59XG5cbi8qIEhpZGUgdGhlIGJyb3dzZXIncyBkZWZhdWx0IGNoZWNrYm94ICovXG4uY29udGFpbmVyIGlucHV0IHtcblx0cG9zaXRpb246IGFic29sdXRlO1xuXHRvcGFjaXR5OiAwO1xuXHRjdXJzb3I6IHBvaW50ZXI7XG5cdGhlaWdodDogMDtcblx0d2lkdGg6IDA7XG59XG5cbi8qIENyZWF0ZSBhIGN1c3RvbSBjaGVja2JveCAqL1xuLmNoZWNrbWFyayB7XG5cdHBvc2l0aW9uOiBhYnNvbHV0ZTtcblx0dG9wOiAwO1xuXHRsZWZ0OiAwO1xuXHRoZWlnaHQ6IDI1cHg7XG5cdHdpZHRoOiAyNXB4O1xuXHQvKmJhY2tncm91bmQtY29sb3I6IHJnYigyMjQgMTA1IDEwNSk7Ki9cbn1cblxuLyogT24gbW91c2Utb3ZlciwgYWRkIGEgZ3JleSBiYWNrZ3JvdW5kIGNvbG9yICovXG4uY29udGFpbmVyOmhvdmVyIGlucHV0IH4gLmNoZWNrbWFyayB7XG5cdC8qYmFja2dyb3VuZC1jb2xvcjogI2NjYzsqL1xufVxuXG4vKiBXaGVuIHRoZSBjaGVja2JveCBpcyBjaGVja2VkLCBhZGQgYSBibHVlIGJhY2tncm91bmQgKi9cbi5jb250YWluZXIgaW5wdXQ6Y2hlY2tlZCB+IC5jaGVja21hcmsge1xuXHQvKmJhY2tncm91bmQtY29sb3I6ICMyMTk2RjM7Ki9cbn1cblxuLyogQ3JlYXRlIHRoZSBjaGVja21hcmsvaW5kaWNhdG9yIChoaWRkZW4gd2hlbiBub3QgY2hlY2tlZCkgKi9cbi5jaGVja21hcms6YWZ0ZXIge1xuXHRjb250ZW50OiBcIlwiO1xuXHRwb3NpdGlvbjogYWJzb2x1dGU7XG5cdGRpc3BsYXk6IG5vbmU7XG59XG5cbi8qIFNob3cgdGhlIGNoZWNrbWFyayB3aGVuIGNoZWNrZWQgKi9cbi5jb250YWluZXIgaW5wdXQ6Y2hlY2tlZCB+IC5jaGVja21hcms6YWZ0ZXIge1xuXHRkaXNwbGF5OiBibG9jaztcbn1cblxuLyogU3R5bGUgdGhlIGNoZWNrbWFyay9pbmRpY2F0b3IgKi9cbi5jb250YWluZXIgLmNoZWNrbWFyazphZnRlciB7XG5cdGxlZnQ6IDlweDtcblx0dG9wOiA1cHg7XG5cdHdpZHRoOiA1cHg7XG5cdGhlaWdodDogMTBweDtcblx0Ym9yZGVyOiBzb2xpZCB3aGl0ZTtcblx0Ym9yZGVyLXdpZHRoOiAwIDNweCAzcHggMDtcblx0LXdlYmtpdC10cmFuc2Zvcm06IHJvdGF0ZSg0NWRlZyk7XG5cdC1tcy10cmFuc2Zvcm06IHJvdGF0ZSg0NWRlZyk7XG5cdHRyYW5zZm9ybTogcm90YXRlKDQ1ZGVnKTtcbn1cblxuLnByb2R1Y3Qtc2l6ZS1wYWRkaW5nLXRvcHtcblx0cGFkZGluZy10b3A6NDVweDtcbn1cblxuLmltZy1jb250YWluZXIge1xuXHRwb3NpdGlvbjogcmVsYXRpdmU7XG5cdG92ZXJmbG93OiBoaWRkZW47XG5cdHotaW5kZXg6IDA7XG5cdGRpc3BsYXk6IGJsb2NrO1xufVxuXG4uaW1nLWNvbnRhaW5lciAuaW1nLW9wdGlvbnMge1xuXHRwb3NpdGlvbjogYWJzb2x1dGU7XG5cdHRvcDogMDtcblx0cmlnaHQ6IDA7XG5cdGJvdHRvbTogMDtcblx0bGVmdDogMDtcblx0ei1pbmRleDogMTtcblx0Y29udGVudDogXCJcIjtcblx0YmFja2dyb3VuZC1jb2xvcjogcmdiYSgwLCAwLCAwLCAwLjYpO1xuXHRvcGFjaXR5OiAwO1xuXHR2aXNpYmlsaXR5OiBoaWRkZW47XG5cdC13ZWJraXQtdHJhbnNpdGlvbjogYWxsIDAuMjVzIGVhc2Utb3V0O1xuXHR0cmFuc2l0aW9uOiBhbGwgMC4yNXMgZWFzZS1vdXQ7XG59XG4uaW1nLWNvbnRhaW5lciAuaW1nLW9wdGlvbnMtY29udGVudCB7XG5cdHBvc2l0aW9uOiBhYnNvbHV0ZTtcblx0dG9wOiA1MCU7XG5cdC13ZWJraXQtdHJhbnNmb3JtOiB0cmFuc2xhdGVZKC01MCUpO1xuXHQtbXMtdHJhbnNmb3JtOiB0cmFuc2xhdGVZKC01MCUpO1xuXHR0cmFuc2Zvcm06IHRyYW5zbGF0ZVkoLTUwJSk7XG5cdHJpZ2h0OiAwO1xuXHRsZWZ0OiAwO1xuXHR0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG4uaW1nLWNvbnRhaW5lciA+IGltZyB7XG5cdC13ZWJraXQtdHJhbnNpdGlvbjogLXdlYmtpdC10cmFuc2Zvcm0gMC4zNXMgZWFzZS1vdXQ7XG5cdHRyYW5zaXRpb246IHRyYW5zZm9ybSAwLjM1cyBlYXNlLW91dDtcbn1cbi5pbWctY29udGFpbmVyOmhvdmVyIC5pbWctb3B0aW9ucyB7XG5cdG9wYWNpdHk6IDE7XG5cdHZpc2liaWxpdHk6IHZpc2libGU7XG59XG5AbWVkaWEgc2NyZWVuIGFuZCAobWF4LXdpZHRoOiA3NjdweCkge1xuXHQuaW1nLWNvbnRhaW5lciAuaW1nLW9wdGlvbnMge1xuXHRcdGRpc3BsYXk6IG5vbmU7XG5cdH1cblx0LmltZy1jb250YWluZXI6aG92ZXIgLmltZy1vcHRpb25zIHtcblx0XHRkaXNwbGF5OiBibG9jaztcblx0fVxufVxuXG5cbi5pbWctY29udGFpbmVyLmZ4LW9wdC1zbGlkZS10b3AgLmltZy1vcHRpb25zIHtcblx0LXdlYmtpdC10cmFuc2Zvcm06IHRyYW5zbGF0ZVkoMTAwJSk7XG5cdC1tcy10cmFuc2Zvcm06IHRyYW5zbGF0ZVkoMTAwJSk7XG5cdHRyYW5zZm9ybTogdHJhbnNsYXRlWSgxMDAlKTtcbn1cbi5pbWctY29udGFpbmVyLmZ4LW9wdC1zbGlkZS10b3A6aG92ZXIgLmltZy1vcHRpb25zIHtcblx0LXdlYmtpdC10cmFuc2Zvcm06IHRyYW5zbGF0ZVkoMCk7XG5cdC1tcy10cmFuc2Zvcm06IHRyYW5zbGF0ZVkoMCk7XG5cdHRyYW5zZm9ybTogdHJhbnNsYXRlWSgwKTtcbn1cbi5pbWctY29udGFpbmVyLmZ4LW9wdC1zbGlkZS1yaWdodCAuaW1nLW9wdGlvbnMge1xuXHQtd2Via2l0LXRyYW5zZm9ybTogdHJhbnNsYXRlWCgtMTAwJSk7XG5cdC1tcy10cmFuc2Zvcm06IHRyYW5zbGF0ZVgoLTEwMCUpO1xuXHR0cmFuc2Zvcm06IHRyYW5zbGF0ZVgoLTEwMCUpO1xufVxuLmltZy1jb250YWluZXIuZngtb3B0LXNsaWRlLXJpZ2h0OmhvdmVyIC5pbWctb3B0aW9ucyB7XG5cdC13ZWJraXQtdHJhbnNmb3JtOiB0cmFuc2xhdGVYKDApO1xuXHQtbXMtdHJhbnNmb3JtOiB0cmFuc2xhdGVYKDApO1xuXHR0cmFuc2Zvcm06IHRyYW5zbGF0ZVgoMCk7XG59XG4uaW1nLWNvbnRhaW5lci5meC1vcHQtc2xpZGUtZG93biAuaW1nLW9wdGlvbnMge1xuXHQtd2Via2l0LXRyYW5zZm9ybTogdHJhbnNsYXRlWSgtMTAwJSk7XG5cdC1tcy10cmFuc2Zvcm06IHRyYW5zbGF0ZVkoLTEwMCUpO1xuXHR0cmFuc2Zvcm06IHRyYW5zbGF0ZVkoLTEwMCUpO1xufVxuLmltZy1jb250YWluZXIuZngtb3B0LXNsaWRlLWRvd246aG92ZXIgLmltZy1vcHRpb25zIHtcblx0LXdlYmtpdC10cmFuc2Zvcm06IHRyYW5zbGF0ZVkoMCk7XG5cdC1tcy10cmFuc2Zvcm06IHRyYW5zbGF0ZVkoMCk7XG5cdHRyYW5zZm9ybTogdHJhbnNsYXRlWSgwKTtcbn1cbi5pbWctY29udGFpbmVyLmZ4LW9wdC1zbGlkZS1sZWZ0IC5pbWctb3B0aW9ucyB7XG5cdC13ZWJraXQtdHJhbnNmb3JtOiB0cmFuc2xhdGVYKDEwMCUpO1xuXHQtbXMtdHJhbnNmb3JtOiB0cmFuc2xhdGVYKDEwMCUpO1xuXHR0cmFuc2Zvcm06IHRyYW5zbGF0ZVgoMTAwJSk7XG59XG4uaW1nLWNvbnRhaW5lci5meC1vcHQtc2xpZGUtbGVmdDpob3ZlciAuaW1nLW9wdGlvbnMge1xuXHQtd2Via2l0LXRyYW5zZm9ybTogdHJhbnNsYXRlWCgwKTtcblx0LW1zLXRyYW5zZm9ybTogdHJhbnNsYXRlWCgwKTtcblx0dHJhbnNmb3JtOiB0cmFuc2xhdGVYKDApO1xufVxuLmltZy1jb250YWluZXIuZngtb3B0LXpvb20taW4gLmltZy1vcHRpb25zIHtcblx0LXdlYmtpdC10cmFuc2Zvcm06IHNjYWxlKDApO1xuXHQtbXMtdHJhbnNmb3JtOiBzY2FsZSgwKTtcblx0dHJhbnNmb3JtOiBzY2FsZSgwKTtcbn1cbi5pbWctY29udGFpbmVyLmZ4LW9wdC16b29tLWluOmhvdmVyIC5pbWctb3B0aW9ucyB7XG5cdC13ZWJraXQtdHJhbnNmb3JtOiBzY2FsZSgxKTtcblx0LW1zLXRyYW5zZm9ybTogc2NhbGUoMSk7XG5cdHRyYW5zZm9ybTogc2NhbGUoMSk7XG59XG4uaW1nLWNvbnRhaW5lci5meC1vcHQtem9vbS1vdXQgLmltZy1vcHRpb25zIHtcblx0LXdlYmtpdC10cmFuc2Zvcm06IHNjYWxlKDIpO1xuXHQtbXMtdHJhbnNmb3JtOiBzY2FsZSgyKTtcblx0dHJhbnNmb3JtOiBzY2FsZSgyKTtcbn1cbi5pbWctY29udGFpbmVyLmZ4LW9wdC16b29tLW91dDpob3ZlciAuaW1nLW9wdGlvbnMge1xuXHQtd2Via2l0LXRyYW5zZm9ybTogc2NhbGUoMSk7XG5cdC1tcy10cmFuc2Zvcm06IHNjYWxlKDEpO1xuXHR0cmFuc2Zvcm06IHNjYWxlKDEpO1xufVxuIl19 */"
+
+/***/ }),
+
 /***/ "./src/app/views/pages/apps/e-commerce/products/product-edit/product-edit.component.ts":
 /*!*********************************************************************************************!*\
   !*** ./src/app/views/pages/apps/e-commerce/products/product-edit/product-edit.component.ts ***!
@@ -19021,6 +19051,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _core_base_layout__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../../../core/_base/layout */ "./src/app/core/_base/layout/index.ts");
 /* harmony import */ var _core_base_crud__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../../../../core/_base/crud */ "./src/app/core/_base/crud/index.ts");
 /* harmony import */ var _core_e_commerce__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../../../../core/e-commerce */ "./src/app/core/e-commerce/index.ts");
+/* harmony import */ var _theme_content_builder_builder_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../../../theme/content/builder/builder.component */ "./src/app/views/theme/content/builder/builder.component.ts");
 
 // Angular
 
@@ -19038,6 +19069,7 @@ __webpack_require__.r(__webpack_exports__);
 // CRUD
 
 // Services and Models
+
 
 var AVAILABLE_COLORS = [
     "Red",
@@ -19121,18 +19153,1454 @@ var ProductEditComponent = /** @class */ (function () {
         this.showMode = false;
         this.showPincode = false;
         this.categories = [
-            "Men's Clothing",
-            "Women's Clothing",
-            "Kid's Clothing",
-            "Sublimation Phone Cases",
-            "Pop Gris",
+            {
+                category_id: 25,
+                parent_category_id: 24,
+                category_name: "Men's Clothing",
+                category_max_hegiht: 0,
+                category_max_width: 0,
+                category_description: null,
+                tax_percent: 5,
+                status: "y",
+                delete_status: "",
+                created_by: null,
+                created_date: null,
+                updated_by: null,
+                updated_date: null,
+                deleted_by: null,
+                deleted_date: null,
+                show_in_menu: 1,
+                contains_variants: 1,
+            },
+            {
+                category_id: 26,
+                parent_category_id: 24,
+                category_name: "Women's Clothing",
+                category_max_hegiht: 0,
+                category_max_width: 0,
+                category_description: null,
+                tax_percent: 5,
+                status: "y",
+                delete_status: "",
+                created_by: null,
+                created_date: null,
+                updated_by: null,
+                updated_date: null,
+                deleted_by: null,
+                deleted_date: null,
+                show_in_menu: 1,
+                contains_variants: 1,
+            },
+            {
+                category_id: 27,
+                parent_category_id: 24,
+                category_name: "Kid's Clothing",
+                category_max_hegiht: 0,
+                category_max_width: 0,
+                category_description: null,
+                tax_percent: 5,
+                status: "y",
+                delete_status: "",
+                created_by: null,
+                created_date: null,
+                updated_by: null,
+                updated_date: null,
+                deleted_by: null,
+                deleted_date: null,
+                show_in_menu: 1,
+                contains_variants: 1,
+            },
+            {
+                category_id: 7,
+                parent_category_id: 1,
+                category_name: "Sublimation Phone Cases",
+                category_max_hegiht: 0,
+                category_max_width: 0,
+                category_description: "Sublimation Phone Cases",
+                tax_percent: 18,
+                status: "y",
+                delete_status: "",
+                created_by: null,
+                created_date: null,
+                updated_by: null,
+                updated_date: null,
+                deleted_by: null,
+                deleted_date: null,
+                show_in_menu: 1,
+                contains_variants: 0,
+            },
+            {
+                category_id: 22,
+                parent_category_id: 17,
+                category_name: "Pop Grips",
+                category_max_hegiht: 0,
+                category_max_width: 0,
+                category_description: null,
+                tax_percent: 18,
+                status: "y",
+                delete_status: "",
+                created_by: null,
+                created_date: null,
+                updated_by: null,
+                updated_date: null,
+                deleted_by: null,
+                deleted_date: null,
+                show_in_menu: 1,
+                contains_variants: 0,
+            },
+            {
+                category_id: 8,
+                parent_category_id: 2,
+                category_name: "Mug",
+                category_max_hegiht: 0,
+                category_max_width: 0,
+                category_description: "Mug",
+                tax_percent: 12,
+                status: "y",
+                delete_status: "",
+                created_by: null,
+                created_date: null,
+                updated_by: null,
+                updated_date: null,
+                deleted_by: null,
+                deleted_date: null,
+                show_in_menu: 1,
+                contains_variants: 0,
+            },
+            {
+                category_id: 10,
+                parent_category_id: 4,
+                category_name: "Coaster",
+                category_max_hegiht: 0,
+                category_max_width: 0,
+                category_description: "Coaster",
+                tax_percent: 18,
+                status: "y",
+                delete_status: "",
+                created_by: null,
+                created_date: null,
+                updated_by: null,
+                updated_date: null,
+                deleted_by: null,
+                deleted_date: null,
+                show_in_menu: 1,
+                contains_variants: 0,
+            },
+            {
+                category_id: 9,
+                parent_category_id: 3,
+                category_name: "Notebook",
+                category_max_hegiht: 0,
+                category_max_width: 0,
+                category_description: "Notebook",
+                tax_percent: 18,
+                status: "y",
+                delete_status: "",
+                created_by: null,
+                created_date: null,
+                updated_by: null,
+                updated_date: null,
+                deleted_by: null,
+                deleted_date: null,
+                show_in_menu: 1,
+                contains_variants: 0,
+            },
+            {
+                category_id: 12,
+                parent_category_id: 6,
+                category_name: "Poster",
+                category_max_hegiht: 0,
+                category_max_width: 0,
+                category_description: "Poster",
+                tax_percent: 12,
+                status: "y",
+                delete_status: "",
+                created_by: null,
+                created_date: null,
+                updated_by: null,
+                updated_date: null,
+                deleted_by: null,
+                deleted_date: null,
+                show_in_menu: 1,
+                contains_variants: 0,
+            },
+            {
+                category_id: 11,
+                parent_category_id: 5,
+                category_name: "Mouse Pad",
+                category_max_hegiht: 0,
+                category_max_width: 0,
+                category_description: "Mouse Pad",
+                tax_percent: 18,
+                status: "y",
+                delete_status: "",
+                created_by: null,
+                created_date: null,
+                updated_by: null,
+                updated_date: null,
+                deleted_by: null,
+                deleted_date: null,
+                show_in_menu: 1,
+                contains_variants: 0,
+            },
+            {
+                category_id: 30,
+                parent_category_id: 17,
+                category_name: "Face Masks",
+                category_max_hegiht: 0,
+                category_max_width: 0,
+                category_description: null,
+                tax_percent: 5,
+                status: "y",
+                delete_status: "",
+                created_by: null,
+                created_date: null,
+                updated_by: null,
+                updated_date: null,
+                deleted_by: null,
+                deleted_date: null,
+                show_in_menu: 1,
+                contains_variants: 1,
+            },
         ];
         this.Items = [
-            "Full Sleeve Round Neck T-shirt",
-            "Half-sleeve Round Neck T-shirt",
+            {
+                product_id: 461,
+                item_id: null,
+                product_code: null,
+                product_name: "Full Sleeve Round Neck T-Shirt",
+                product_category_id: 25,
+                product_brand: null,
+                product_model: null,
+                product_price: null,
+                product_weight: 0,
+                product_front_height: null,
+                product_front_width: null,
+                product_front_x: null,
+                product_front_y: null,
+                product_mockup_height: null,
+                product_mockup_width: null,
+                product_canvas_height: null,
+                product_canvas_width: null,
+                product_mockup_x: null,
+                product_mockup_y: null,
+                product_sku: 0,
+                product_mockup_file_path: null,
+                product_mockup_layout_file_path: null,
+                zoho_item_id: "",
+                status: null,
+                delete_status: "",
+                created_by: null,
+                created_at: "2018-11-30 16:50:47",
+                updated_by: null,
+                updated_at: "2020-10-30 23:01:15",
+                deleted_by: null,
+                deleted_date: null,
+                product_seprate_panel: 1,
+                product_max_print_height: 0,
+                product_max_print_width: 0,
+                product_max_print_X: 0,
+                product_max_print_Y: 0,
+                rate_per_inch: 0,
+                min_print_rate: 0,
+                product_back_mockup_layout_file_path: "",
+                size_migration: "",
+                parent_id: 0,
+                parent_flag: 1,
+                product_sample_base_price: 0,
+                number_of_mockups: 0,
+                reorder_level: 0,
+                product_eoq: 0,
+                product_cubic_volume: 0,
+                product_length_cm: 0,
+                product_breadth_cm: 0,
+                product_height_cm: 0,
+                actual_stock: 0,
+                use_actual_stock: 0,
+            },
+            {
+                product_id: 460,
+                item_id: null,
+                product_code: null,
+                product_name: "Half Sleeve Round Neck T-Shirt",
+                product_category_id: 25,
+                product_brand: null,
+                product_model: null,
+                product_price: null,
+                product_weight: 0,
+                product_front_height: null,
+                product_front_width: null,
+                product_front_x: null,
+                product_front_y: null,
+                product_mockup_height: null,
+                product_mockup_width: null,
+                product_canvas_height: null,
+                product_canvas_width: null,
+                product_mockup_x: null,
+                product_mockup_y: null,
+                product_sku: 0,
+                product_mockup_file_path: null,
+                product_mockup_layout_file_path: null,
+                zoho_item_id: "",
+                status: null,
+                delete_status: "",
+                created_by: null,
+                created_at: "2018-11-30 16:15:27",
+                updated_by: null,
+                updated_at: "2020-10-30 23:01:15",
+                deleted_by: null,
+                deleted_date: null,
+                product_seprate_panel: 1,
+                product_max_print_height: 0,
+                product_max_print_width: 0,
+                product_max_print_X: 0,
+                product_max_print_Y: 0,
+                rate_per_inch: 0,
+                min_print_rate: 0,
+                product_back_mockup_layout_file_path: "",
+                size_migration: "",
+                parent_id: 0,
+                parent_flag: 1,
+                product_sample_base_price: 0,
+                number_of_mockups: 0,
+                reorder_level: 0,
+                product_eoq: 0,
+                product_cubic_volume: 0,
+                product_length_cm: 0,
+                product_breadth_cm: 0,
+                product_height_cm: 0,
+                actual_stock: 0,
+                use_actual_stock: 0,
+            },
+            {
+                product_id: 463,
+                item_id: null,
+                product_code: null,
+                product_name: "Hoodies",
+                product_category_id: 25,
+                product_brand: null,
+                product_model: null,
+                product_price: null,
+                product_weight: 0,
+                product_front_height: null,
+                product_front_width: null,
+                product_front_x: null,
+                product_front_y: null,
+                product_mockup_height: null,
+                product_mockup_width: null,
+                product_canvas_height: null,
+                product_canvas_width: null,
+                product_mockup_x: null,
+                product_mockup_y: null,
+                product_sku: 0,
+                product_mockup_file_path: null,
+                product_mockup_layout_file_path: null,
+                zoho_item_id: "",
+                status: null,
+                delete_status: "",
+                created_by: null,
+                created_at: "2018-11-30 17:04:37",
+                updated_by: null,
+                updated_at: "2020-10-30 23:01:15",
+                deleted_by: null,
+                deleted_date: null,
+                product_seprate_panel: 1,
+                product_max_print_height: 0,
+                product_max_print_width: 0,
+                product_max_print_X: 0,
+                product_max_print_Y: 0,
+                rate_per_inch: 0,
+                min_print_rate: 0,
+                product_back_mockup_layout_file_path: "",
+                size_migration: "",
+                parent_id: 0,
+                parent_flag: 1,
+                product_sample_base_price: 0,
+                number_of_mockups: 0,
+                reorder_level: 0,
+                product_eoq: 0,
+                product_cubic_volume: 0,
+                product_length_cm: 0,
+                product_breadth_cm: 0,
+                product_height_cm: 0,
+                actual_stock: 0,
+                use_actual_stock: 0,
+            },
         ];
         this.Size = ["L", "S", "M", "XL", "2XL"];
-        this.Varieties = ["White", "Black", "Purple"];
+        this.Varieties = [
+            {
+                product_variant_option_id: 22,
+                product_variant_id: 4,
+                product_option_value: "Black",
+                sorting_id: 0,
+                is_inactive: 0,
+                option_color_code: "#202020",
+                created_at: "2018-11-30 16:52:40",
+                updated_at: "2018-11-30 16:52:40",
+                Size: [
+                    {
+                        product_variant_option_id: 17,
+                        product_variant_id: 3,
+                        product_option_value: "S",
+                        sorting_id: 0,
+                        is_inactive: 0,
+                        option_color_code: "",
+                        created_at: "2018-11-30 16:52:40",
+                        updated_at: "2018-11-30 16:52:40",
+                        product_id: 315,
+                        product_code: "BLACK-S-MENR-LONG",
+                        product_name: "Black S Men Round Long Sleeves",
+                        product: {
+                            product_id: 315,
+                            item_id: 277,
+                            product_code: "BLACK-S-MENR-LONG",
+                            product_name: "Black S Men Round Long Sleeves",
+                            product_category_id: 16,
+                            product_brand: null,
+                            product_model: null,
+                            product_price: 180,
+                            product_weight: 200,
+                            product_front_height: null,
+                            product_front_width: null,
+                            product_front_x: null,
+                            product_front_y: null,
+                            product_mockup_height: 1140,
+                            product_mockup_width: 1140,
+                            product_canvas_height: 1140,
+                            product_canvas_width: 1140,
+                            product_mockup_x: null,
+                            product_mockup_y: null,
+                            product_sku: 18,
+                            product_mockup_file_path: "315.jpg",
+                            product_mockup_layout_file_path: "315.jpg",
+                            zoho_item_id: 937760000011734308,
+                            status: null,
+                            delete_status: "",
+                            created_by: null,
+                            created_at: "2018-06-08 15:17:16",
+                            updated_by: null,
+                            updated_at: "2020-11-02 00:01:41",
+                            deleted_by: null,
+                            deleted_date: null,
+                            product_seprate_panel: 1,
+                            product_max_print_height: 480,
+                            product_max_print_width: 420,
+                            product_max_print_X: 360,
+                            product_max_print_Y: 330,
+                            rate_per_inch: 1.5,
+                            min_print_rate: 120,
+                            product_back_mockup_layout_file_path: "back-315.jpg",
+                            size_migration: null,
+                            parent_id: 461,
+                            parent_flag: 0,
+                            product_sample_base_price: 450,
+                            number_of_mockups: 4,
+                            reorder_level: 10,
+                            product_eoq: 0,
+                            product_cubic_volume: 0,
+                            product_length_cm: 32,
+                            product_breadth_cm: 26,
+                            product_height_cm: 2,
+                            actual_stock: 18,
+                            use_actual_stock: 1,
+                        },
+                        product_color_name: "Black",
+                        product_size_name: "S",
+                    },
+                    {
+                        product_variant_option_id: 18,
+                        product_variant_id: 3,
+                        product_option_value: "M",
+                        sorting_id: 0,
+                        is_inactive: 0,
+                        option_color_code: "",
+                        created_at: "2018-11-30 16:52:40",
+                        updated_at: "2018-11-30 16:52:40",
+                        product_id: 316,
+                        product_code: "BLACK-M-MENR-LONG",
+                        product_name: "Black M Men Round Long Sleeves",
+                        product: {
+                            product_id: 316,
+                            item_id: 278,
+                            product_code: "BLACK-M-MENR-LONG",
+                            product_name: "Black M Men Round Long Sleeves",
+                            product_category_id: 16,
+                            product_brand: null,
+                            product_model: null,
+                            product_price: 180,
+                            product_weight: 200,
+                            product_front_height: null,
+                            product_front_width: null,
+                            product_front_x: null,
+                            product_front_y: null,
+                            product_mockup_height: 1140,
+                            product_mockup_width: 1140,
+                            product_canvas_height: 1140,
+                            product_canvas_width: 1140,
+                            product_mockup_x: null,
+                            product_mockup_y: null,
+                            product_sku: 18,
+                            product_mockup_file_path: "316.jpg",
+                            product_mockup_layout_file_path: "316.jpg",
+                            zoho_item_id: 937760000011734333,
+                            status: null,
+                            delete_status: "",
+                            created_by: null,
+                            created_at: "2018-06-08 15:19:41",
+                            updated_by: null,
+                            updated_at: "2020-11-02 00:01:41",
+                            deleted_by: null,
+                            deleted_date: null,
+                            product_seprate_panel: 1,
+                            product_max_print_height: 480,
+                            product_max_print_width: 420,
+                            product_max_print_X: 360,
+                            product_max_print_Y: 330,
+                            rate_per_inch: 1.5,
+                            min_print_rate: 120,
+                            product_back_mockup_layout_file_path: "back-316.jpg",
+                            size_migration: null,
+                            parent_id: 461,
+                            parent_flag: 0,
+                            product_sample_base_price: 450,
+                            number_of_mockups: 4,
+                            reorder_level: 27,
+                            product_eoq: 0,
+                            product_cubic_volume: 0,
+                            product_length_cm: 32,
+                            product_breadth_cm: 26,
+                            product_height_cm: 2,
+                            actual_stock: 18,
+                            use_actual_stock: 1,
+                        },
+                        product_color_name: "Black",
+                        product_size_name: "M",
+                    },
+                    {
+                        product_variant_option_id: 19,
+                        product_variant_id: 3,
+                        product_option_value: "L",
+                        sorting_id: 0,
+                        is_inactive: 0,
+                        option_color_code: "",
+                        created_at: "2018-11-30 16:52:40",
+                        updated_at: "2018-11-30 16:52:40",
+                        product_id: 317,
+                        product_code: "BLACK-L-MENR-LONG",
+                        product_name: "Black L Men Round Long Sleeves",
+                        product: {
+                            product_id: 317,
+                            item_id: 279,
+                            product_code: "BLACK-L-MENR-LONG",
+                            product_name: "Black L Men Round Long Sleeves",
+                            product_category_id: 16,
+                            product_brand: null,
+                            product_model: null,
+                            product_price: 180,
+                            product_weight: 200,
+                            product_front_height: null,
+                            product_front_width: null,
+                            product_front_x: null,
+                            product_front_y: null,
+                            product_mockup_height: 1140,
+                            product_mockup_width: 1140,
+                            product_canvas_height: 1140,
+                            product_canvas_width: 1140,
+                            product_mockup_x: null,
+                            product_mockup_y: null,
+                            product_sku: 44,
+                            product_mockup_file_path: "317.jpg",
+                            product_mockup_layout_file_path: "317.jpg",
+                            zoho_item_id: 937760000011734342,
+                            status: null,
+                            delete_status: "",
+                            created_by: null,
+                            created_at: "2018-06-08 15:22:33",
+                            updated_by: null,
+                            updated_at: "2020-11-02 00:01:41",
+                            deleted_by: null,
+                            deleted_date: null,
+                            product_seprate_panel: 1,
+                            product_max_print_height: 480,
+                            product_max_print_width: 420,
+                            product_max_print_X: 360,
+                            product_max_print_Y: 330,
+                            rate_per_inch: 1.5,
+                            min_print_rate: 120,
+                            product_back_mockup_layout_file_path: "back-317.jpg",
+                            size_migration: null,
+                            parent_id: 461,
+                            parent_flag: 0,
+                            product_sample_base_price: 450,
+                            number_of_mockups: 4,
+                            reorder_level: 26,
+                            product_eoq: 0,
+                            product_cubic_volume: 0,
+                            product_length_cm: 32,
+                            product_breadth_cm: 26,
+                            product_height_cm: 2,
+                            actual_stock: 44,
+                            use_actual_stock: 1,
+                        },
+                        product_color_name: "Black",
+                        product_size_name: "L",
+                    },
+                    {
+                        product_variant_option_id: 20,
+                        product_variant_id: 3,
+                        product_option_value: "XL",
+                        sorting_id: 0,
+                        is_inactive: 0,
+                        option_color_code: "",
+                        created_at: "2018-11-30 16:52:40",
+                        updated_at: "2018-11-30 16:52:40",
+                        product_id: 318,
+                        product_code: "BLACK-XL-MENR-LONG",
+                        product_name: "Black XL Men Round Long Sleeves",
+                        product: {
+                            product_id: 318,
+                            item_id: 280,
+                            product_code: "BLACK-XL-MENR-LONG",
+                            product_name: "Black XL Men Round Long Sleeves",
+                            product_category_id: 16,
+                            product_brand: null,
+                            product_model: null,
+                            product_price: 180,
+                            product_weight: 200,
+                            product_front_height: null,
+                            product_front_width: null,
+                            product_front_x: null,
+                            product_front_y: null,
+                            product_mockup_height: 1140,
+                            product_mockup_width: 1140,
+                            product_canvas_height: 1140,
+                            product_canvas_width: 1140,
+                            product_mockup_x: null,
+                            product_mockup_y: null,
+                            product_sku: 24,
+                            product_mockup_file_path: "318.jpg",
+                            product_mockup_layout_file_path: "318.jpg",
+                            zoho_item_id: 937760000011734367,
+                            status: null,
+                            delete_status: "",
+                            created_by: null,
+                            created_at: "2018-06-08 15:25:14",
+                            updated_by: null,
+                            updated_at: "2020-11-02 00:01:41",
+                            deleted_by: null,
+                            deleted_date: null,
+                            product_seprate_panel: 1,
+                            product_max_print_height: 480,
+                            product_max_print_width: 420,
+                            product_max_print_X: 360,
+                            product_max_print_Y: 330,
+                            rate_per_inch: 1.5,
+                            min_print_rate: 120,
+                            product_back_mockup_layout_file_path: "back-318.jpg",
+                            size_migration: null,
+                            parent_id: 461,
+                            parent_flag: 0,
+                            product_sample_base_price: 450,
+                            number_of_mockups: 4,
+                            reorder_level: 14,
+                            product_eoq: 0,
+                            product_cubic_volume: 0,
+                            product_length_cm: 32,
+                            product_breadth_cm: 26,
+                            product_height_cm: 2,
+                            actual_stock: 24,
+                            use_actual_stock: 1,
+                        },
+                        product_color_name: "Black",
+                        product_size_name: "XL",
+                    },
+                    {
+                        product_variant_option_id: 21,
+                        product_variant_id: 3,
+                        product_option_value: "2XL",
+                        sorting_id: 0,
+                        is_inactive: 0,
+                        option_color_code: "",
+                        created_at: "2018-11-30 16:52:40",
+                        updated_at: "2018-11-30 16:52:40",
+                        product_id: 319,
+                        product_code: "BLACK-XXL-MENR-LONG",
+                        product_name: "Black XXL Men Round Long Sleeves",
+                        product: {
+                            product_id: 319,
+                            item_id: 281,
+                            product_code: "BLACK-XXL-MENR-LONG",
+                            product_name: "Black XXL Men Round Long Sleeves",
+                            product_category_id: 16,
+                            product_brand: null,
+                            product_model: null,
+                            product_price: 180,
+                            product_weight: 200,
+                            product_front_height: null,
+                            product_front_width: null,
+                            product_front_x: null,
+                            product_front_y: null,
+                            product_mockup_height: 1140,
+                            product_mockup_width: 1140,
+                            product_canvas_height: 1140,
+                            product_canvas_width: 1140,
+                            product_mockup_x: null,
+                            product_mockup_y: null,
+                            product_sku: 64,
+                            product_mockup_file_path: "319.jpg",
+                            product_mockup_layout_file_path: "319.jpg",
+                            zoho_item_id: 937760000011734392,
+                            status: null,
+                            delete_status: "",
+                            created_by: null,
+                            created_at: "2018-06-08 15:26:39",
+                            updated_by: null,
+                            updated_at: "2020-11-02 00:01:41",
+                            deleted_by: null,
+                            deleted_date: null,
+                            product_seprate_panel: 1,
+                            product_max_print_height: 480,
+                            product_max_print_width: 420,
+                            product_max_print_X: 360,
+                            product_max_print_Y: 330,
+                            rate_per_inch: 1.5,
+                            min_print_rate: 120,
+                            product_back_mockup_layout_file_path: "back-319.jpg",
+                            size_migration: null,
+                            parent_id: 461,
+                            parent_flag: 0,
+                            product_sample_base_price: 450,
+                            number_of_mockups: 4,
+                            reorder_level: 12,
+                            product_eoq: 0,
+                            product_cubic_volume: 0,
+                            product_length_cm: 32,
+                            product_breadth_cm: 26,
+                            product_height_cm: 2,
+                            actual_stock: 64,
+                            use_actual_stock: 1,
+                        },
+                        product_color_name: "Black",
+                        product_size_name: "2XL",
+                    },
+                ],
+            },
+            {
+                product_variant_option_id: 23,
+                product_variant_id: 4,
+                product_option_value: "White",
+                sorting_id: 0,
+                is_inactive: 0,
+                option_color_code: "#e8e8e8",
+                created_at: "2018-11-30 16:52:40",
+                updated_at: "2018-11-30 16:52:40",
+                Size: [
+                    {
+                        product_variant_option_id: 17,
+                        product_variant_id: 3,
+                        product_option_value: "S",
+                        sorting_id: 0,
+                        is_inactive: 0,
+                        option_color_code: "",
+                        created_at: "2018-11-30 16:52:40",
+                        updated_at: "2018-11-30 16:52:40",
+                        product_id: 389,
+                        product_code: "WHITE-S-MENR-LONG",
+                        product_name: "White S Men Round Long Sleeves",
+                        product: {
+                            product_id: 389,
+                            item_id: 351,
+                            product_code: "WHITE-S-MENR-LONG",
+                            product_name: "White S Men Round Long Sleeves",
+                            product_category_id: 16,
+                            product_brand: null,
+                            product_model: null,
+                            product_price: 180,
+                            product_weight: 200,
+                            product_front_height: null,
+                            product_front_width: null,
+                            product_front_x: null,
+                            product_front_y: null,
+                            product_mockup_height: 1140,
+                            product_mockup_width: 1140,
+                            product_canvas_height: 1140,
+                            product_canvas_width: 1140,
+                            product_mockup_x: null,
+                            product_mockup_y: null,
+                            product_sku: 29,
+                            product_mockup_file_path: "389.jpg",
+                            product_mockup_layout_file_path: "389.jpg",
+                            zoho_item_id: 937760000011734417,
+                            status: null,
+                            delete_status: "",
+                            created_by: null,
+                            created_at: "2018-06-28 12:17:46",
+                            updated_by: null,
+                            updated_at: "2020-11-02 00:01:41",
+                            deleted_by: null,
+                            deleted_date: null,
+                            product_seprate_panel: 1,
+                            product_max_print_height: 480,
+                            product_max_print_width: 420,
+                            product_max_print_X: 360,
+                            product_max_print_Y: 330,
+                            rate_per_inch: 0.8,
+                            min_print_rate: 80,
+                            product_back_mockup_layout_file_path: "back-389.jpg",
+                            size_migration: null,
+                            parent_id: 461,
+                            parent_flag: 0,
+                            product_sample_base_price: 450,
+                            number_of_mockups: 4,
+                            reorder_level: 6,
+                            product_eoq: 0,
+                            product_cubic_volume: 0,
+                            product_length_cm: 32,
+                            product_breadth_cm: 26,
+                            product_height_cm: 2,
+                            actual_stock: 29,
+                            use_actual_stock: 1,
+                        },
+                        product_color_name: "White",
+                        product_size_name: "S",
+                    },
+                    {
+                        product_variant_option_id: 18,
+                        product_variant_id: 3,
+                        product_option_value: "M",
+                        sorting_id: 0,
+                        is_inactive: 0,
+                        option_color_code: "",
+                        created_at: "2018-11-30 16:52:40",
+                        updated_at: "2018-11-30 16:52:40",
+                        product_id: 390,
+                        product_code: "WHITE-M-MENR-LONG",
+                        product_name: "White M Men Round Long Sleeves",
+                        product: {
+                            product_id: 390,
+                            item_id: 352,
+                            product_code: "WHITE-M-MENR-LONG",
+                            product_name: "White M Men Round Long Sleeves",
+                            product_category_id: 16,
+                            product_brand: null,
+                            product_model: null,
+                            product_price: 180,
+                            product_weight: 200,
+                            product_front_height: null,
+                            product_front_width: null,
+                            product_front_x: null,
+                            product_front_y: null,
+                            product_mockup_height: 1140,
+                            product_mockup_width: 1140,
+                            product_canvas_height: 1140,
+                            product_canvas_width: 1140,
+                            product_mockup_x: null,
+                            product_mockup_y: null,
+                            product_sku: 10,
+                            product_mockup_file_path: "390.jpg",
+                            product_mockup_layout_file_path: "390.jpg",
+                            zoho_item_id: 937760000011734442,
+                            status: null,
+                            delete_status: "",
+                            created_by: null,
+                            created_at: "2018-06-28 12:18:38",
+                            updated_by: null,
+                            updated_at: "2020-11-02 00:01:41",
+                            deleted_by: null,
+                            deleted_date: null,
+                            product_seprate_panel: 1,
+                            product_max_print_height: 480,
+                            product_max_print_width: 420,
+                            product_max_print_X: 360,
+                            product_max_print_Y: 330,
+                            rate_per_inch: 0.8,
+                            min_print_rate: 80,
+                            product_back_mockup_layout_file_path: "back-390.jpg",
+                            size_migration: null,
+                            parent_id: 461,
+                            parent_flag: 0,
+                            product_sample_base_price: 450,
+                            number_of_mockups: 4,
+                            reorder_level: 12,
+                            product_eoq: 0,
+                            product_cubic_volume: 0,
+                            product_length_cm: 32,
+                            product_breadth_cm: 26,
+                            product_height_cm: 2,
+                            actual_stock: 10,
+                            use_actual_stock: 1,
+                        },
+                        product_color_name: "White",
+                        product_size_name: "M",
+                    },
+                    {
+                        product_variant_option_id: 19,
+                        product_variant_id: 3,
+                        product_option_value: "L",
+                        sorting_id: 0,
+                        is_inactive: 0,
+                        option_color_code: "",
+                        created_at: "2018-11-30 16:52:40",
+                        updated_at: "2018-11-30 16:52:40",
+                        product_id: 391,
+                        product_code: "WHITE-L-MENR-LONG",
+                        product_name: "White L Men Round Long Sleeves",
+                        product: {
+                            product_id: 391,
+                            item_id: 353,
+                            product_code: "WHITE-L-MENR-LONG",
+                            product_name: "White L Men Round Long Sleeves",
+                            product_category_id: 16,
+                            product_brand: null,
+                            product_model: null,
+                            product_price: 180,
+                            product_weight: 200,
+                            product_front_height: null,
+                            product_front_width: null,
+                            product_front_x: null,
+                            product_front_y: null,
+                            product_mockup_height: 1140,
+                            product_mockup_width: 1140,
+                            product_canvas_height: 1140,
+                            product_canvas_width: 1140,
+                            product_mockup_x: null,
+                            product_mockup_y: null,
+                            product_sku: 0,
+                            product_mockup_file_path: "391.jpg",
+                            product_mockup_layout_file_path: "391.jpg",
+                            zoho_item_id: 937760000011734467,
+                            status: null,
+                            delete_status: "",
+                            created_by: null,
+                            created_at: "2018-06-28 12:19:32",
+                            updated_by: null,
+                            updated_at: "2020-11-02 00:01:41",
+                            deleted_by: null,
+                            deleted_date: null,
+                            product_seprate_panel: 1,
+                            product_max_print_height: 480,
+                            product_max_print_width: 420,
+                            product_max_print_X: 360,
+                            product_max_print_Y: 330,
+                            rate_per_inch: 0.8,
+                            min_print_rate: 80,
+                            product_back_mockup_layout_file_path: "back-391.jpg",
+                            size_migration: null,
+                            parent_id: 461,
+                            parent_flag: 0,
+                            product_sample_base_price: 450,
+                            number_of_mockups: 4,
+                            reorder_level: 10,
+                            product_eoq: 0,
+                            product_cubic_volume: 0,
+                            product_length_cm: 32,
+                            product_breadth_cm: 26,
+                            product_height_cm: 2,
+                            actual_stock: 0,
+                            use_actual_stock: 1,
+                        },
+                        product_color_name: "White",
+                        product_size_name: "L",
+                    },
+                    {
+                        product_variant_option_id: 20,
+                        product_variant_id: 3,
+                        product_option_value: "XL",
+                        sorting_id: 0,
+                        is_inactive: 0,
+                        option_color_code: "",
+                        created_at: "2018-11-30 16:52:40",
+                        updated_at: "2018-11-30 16:52:40",
+                        product_id: 392,
+                        product_code: "WHITE-XL-MENR-LONG",
+                        product_name: "White XL Men Round Long Sleeves",
+                        product: {
+                            product_id: 392,
+                            item_id: 354,
+                            product_code: "WHITE-XL-MENR-LONG",
+                            product_name: "White XL Men Round Long Sleeves",
+                            product_category_id: 16,
+                            product_brand: null,
+                            product_model: null,
+                            product_price: 180,
+                            product_weight: 200,
+                            product_front_height: null,
+                            product_front_width: null,
+                            product_front_x: null,
+                            product_front_y: null,
+                            product_mockup_height: 1140,
+                            product_mockup_width: 1140,
+                            product_canvas_height: 1140,
+                            product_canvas_width: 1140,
+                            product_mockup_x: null,
+                            product_mockup_y: null,
+                            product_sku: 17,
+                            product_mockup_file_path: "392.jpg",
+                            product_mockup_layout_file_path: "392.jpg",
+                            zoho_item_id: 937760000011734492,
+                            status: null,
+                            delete_status: "",
+                            created_by: null,
+                            created_at: "2018-06-28 12:20:23",
+                            updated_by: null,
+                            updated_at: "2020-11-02 00:01:41",
+                            deleted_by: null,
+                            deleted_date: null,
+                            product_seprate_panel: 1,
+                            product_max_print_height: 480,
+                            product_max_print_width: 420,
+                            product_max_print_X: 360,
+                            product_max_print_Y: 330,
+                            rate_per_inch: 0.8,
+                            min_print_rate: 80,
+                            product_back_mockup_layout_file_path: "back-392.jpg",
+                            size_migration: null,
+                            parent_id: 461,
+                            parent_flag: 0,
+                            product_sample_base_price: 450,
+                            number_of_mockups: 4,
+                            reorder_level: 7,
+                            product_eoq: 0,
+                            product_cubic_volume: 0,
+                            product_length_cm: 32,
+                            product_breadth_cm: 26,
+                            product_height_cm: 2,
+                            actual_stock: 17,
+                            use_actual_stock: 1,
+                        },
+                        product_color_name: "White",
+                        product_size_name: "XL",
+                    },
+                    {
+                        product_variant_option_id: 21,
+                        product_variant_id: 3,
+                        product_option_value: "2XL",
+                        sorting_id: 0,
+                        is_inactive: 0,
+                        option_color_code: "",
+                        created_at: "2018-11-30 16:52:40",
+                        updated_at: "2018-11-30 16:52:40",
+                        product_id: 393,
+                        product_code: "WHITE-XXL-MENR-LONG",
+                        product_name: "White XXL Men Round Long Sleeves",
+                        product: {
+                            product_id: 393,
+                            item_id: 355,
+                            product_code: "WHITE-XXL-MENR-LONG",
+                            product_name: "White XXL Men Round Long Sleeves",
+                            product_category_id: 16,
+                            product_brand: null,
+                            product_model: null,
+                            product_price: 180,
+                            product_weight: 200,
+                            product_front_height: null,
+                            product_front_width: null,
+                            product_front_x: null,
+                            product_front_y: null,
+                            product_mockup_height: 1140,
+                            product_mockup_width: 1140,
+                            product_canvas_height: 1140,
+                            product_canvas_width: 1140,
+                            product_mockup_x: null,
+                            product_mockup_y: null,
+                            product_sku: 22,
+                            product_mockup_file_path: "393.jpg",
+                            product_mockup_layout_file_path: "393.jpg",
+                            zoho_item_id: 937760000011734517,
+                            status: null,
+                            delete_status: "",
+                            created_by: null,
+                            created_at: "2018-06-28 12:21:13",
+                            updated_by: null,
+                            updated_at: "2020-11-02 00:01:41",
+                            deleted_by: null,
+                            deleted_date: null,
+                            product_seprate_panel: 1,
+                            product_max_print_height: 480,
+                            product_max_print_width: 420,
+                            product_max_print_X: 360,
+                            product_max_print_Y: 330,
+                            rate_per_inch: 0.8,
+                            min_print_rate: 80,
+                            product_back_mockup_layout_file_path: "back-393.jpg",
+                            size_migration: null,
+                            parent_id: 461,
+                            parent_flag: 0,
+                            product_sample_base_price: 450,
+                            number_of_mockups: 4,
+                            reorder_level: 5,
+                            product_eoq: 0,
+                            product_cubic_volume: 0,
+                            product_length_cm: 32,
+                            product_breadth_cm: 26,
+                            product_height_cm: 2,
+                            actual_stock: 22,
+                            use_actual_stock: 1,
+                        },
+                        product_color_name: "White",
+                        product_size_name: "2XL",
+                    },
+                ],
+            },
+            {
+                product_variant_option_id: 24,
+                product_variant_id: 4,
+                product_option_value: "Melange Grey",
+                sorting_id: 0,
+                is_inactive: 0,
+                option_color_code: "#afafaf",
+                created_at: "2018-11-30 16:52:40",
+                updated_at: "2018-11-30 16:52:40",
+                Size: [
+                    {
+                        product_variant_option_id: 17,
+                        product_variant_id: 3,
+                        product_option_value: "S",
+                        sorting_id: 0,
+                        is_inactive: 0,
+                        option_color_code: "",
+                        created_at: "2018-11-30 16:52:40",
+                        updated_at: "2018-11-30 16:52:40",
+                        product_id: 394,
+                        product_code: "MGREY-S-MENR-LONG",
+                        product_name: "Melange Grey S Men Round Long Sleeves",
+                        product: {
+                            product_id: 394,
+                            item_id: 356,
+                            product_code: "MGREY-S-MENR-LONG",
+                            product_name: "Melange Grey S Men Round Long Sleeves",
+                            product_category_id: 16,
+                            product_brand: null,
+                            product_model: null,
+                            product_price: 180,
+                            product_weight: 200,
+                            product_front_height: null,
+                            product_front_width: null,
+                            product_front_x: null,
+                            product_front_y: null,
+                            product_mockup_height: 1140,
+                            product_mockup_width: 1140,
+                            product_canvas_height: 1140,
+                            product_canvas_width: 1140,
+                            product_mockup_x: null,
+                            product_mockup_y: null,
+                            product_sku: 33,
+                            product_mockup_file_path: "394.jpg",
+                            product_mockup_layout_file_path: "394.jpg",
+                            zoho_item_id: 937760000011734542,
+                            status: null,
+                            delete_status: "",
+                            created_by: null,
+                            created_at: "2018-06-28 12:22:05",
+                            updated_by: null,
+                            updated_at: "2020-11-02 00:01:41",
+                            deleted_by: null,
+                            deleted_date: null,
+                            product_seprate_panel: 1,
+                            product_max_print_height: 480,
+                            product_max_print_width: 420,
+                            product_max_print_X: 360,
+                            product_max_print_Y: 330,
+                            rate_per_inch: 1.5,
+                            min_print_rate: 120,
+                            product_back_mockup_layout_file_path: "back-394.jpg",
+                            size_migration: null,
+                            parent_id: 461,
+                            parent_flag: 0,
+                            product_sample_base_price: 450,
+                            number_of_mockups: 4,
+                            reorder_level: 4,
+                            product_eoq: 0,
+                            product_cubic_volume: 0,
+                            product_length_cm: 32,
+                            product_breadth_cm: 26,
+                            product_height_cm: 2,
+                            actual_stock: 33,
+                            use_actual_stock: 1,
+                        },
+                        product_color_name: "Melange Grey",
+                        product_size_name: "S",
+                    },
+                    {
+                        product_variant_option_id: 18,
+                        product_variant_id: 3,
+                        product_option_value: "M",
+                        sorting_id: 0,
+                        is_inactive: 0,
+                        option_color_code: "",
+                        created_at: "2018-11-30 16:52:40",
+                        updated_at: "2018-11-30 16:52:40",
+                        product_id: 395,
+                        product_code: "MGREY-M-MENR-LONG",
+                        product_name: "Melange Grey M Men Round Long Sleeves",
+                        product: {
+                            product_id: 395,
+                            item_id: 357,
+                            product_code: "MGREY-M-MENR-LONG",
+                            product_name: "Melange Grey M Men Round Long Sleeves",
+                            product_category_id: 16,
+                            product_brand: null,
+                            product_model: null,
+                            product_price: 180,
+                            product_weight: 200,
+                            product_front_height: null,
+                            product_front_width: null,
+                            product_front_x: null,
+                            product_front_y: null,
+                            product_mockup_height: 1140,
+                            product_mockup_width: 1140,
+                            product_canvas_height: 1140,
+                            product_canvas_width: 1140,
+                            product_mockup_x: null,
+                            product_mockup_y: null,
+                            product_sku: 28,
+                            product_mockup_file_path: "395.jpg",
+                            product_mockup_layout_file_path: "395.jpg",
+                            zoho_item_id: 937760000011734567,
+                            status: null,
+                            delete_status: "",
+                            created_by: null,
+                            created_at: "2018-06-28 12:22:54",
+                            updated_by: null,
+                            updated_at: "2020-11-02 00:01:41",
+                            deleted_by: null,
+                            deleted_date: null,
+                            product_seprate_panel: 1,
+                            product_max_print_height: 480,
+                            product_max_print_width: 420,
+                            product_max_print_X: 360,
+                            product_max_print_Y: 330,
+                            rate_per_inch: 1.5,
+                            min_print_rate: 120,
+                            product_back_mockup_layout_file_path: "back-395.jpg",
+                            size_migration: null,
+                            parent_id: 461,
+                            parent_flag: 0,
+                            product_sample_base_price: 450,
+                            number_of_mockups: 4,
+                            reorder_level: 10,
+                            product_eoq: 0,
+                            product_cubic_volume: 0,
+                            product_length_cm: 32,
+                            product_breadth_cm: 26,
+                            product_height_cm: 2,
+                            actual_stock: 28,
+                            use_actual_stock: 1,
+                        },
+                        product_color_name: "Melange Grey",
+                        product_size_name: "M",
+                    },
+                    {
+                        product_variant_option_id: 19,
+                        product_variant_id: 3,
+                        product_option_value: "L",
+                        sorting_id: 0,
+                        is_inactive: 0,
+                        option_color_code: "",
+                        created_at: "2018-11-30 16:52:40",
+                        updated_at: "2018-11-30 16:52:40",
+                        product_id: 396,
+                        product_code: "MGREY-L-MENR-LONG",
+                        product_name: "Melange Grey L Men Round Long Sleeves",
+                        product: {
+                            product_id: 396,
+                            item_id: 358,
+                            product_code: "MGREY-L-MENR-LONG",
+                            product_name: "Melange Grey L Men Round Long Sleeves",
+                            product_category_id: 16,
+                            product_brand: null,
+                            product_model: null,
+                            product_price: 180,
+                            product_weight: 200,
+                            product_front_height: null,
+                            product_front_width: null,
+                            product_front_x: null,
+                            product_front_y: null,
+                            product_mockup_height: 1140,
+                            product_mockup_width: 1140,
+                            product_canvas_height: 1140,
+                            product_canvas_width: 1140,
+                            product_mockup_x: null,
+                            product_mockup_y: null,
+                            product_sku: 11,
+                            product_mockup_file_path: "396.jpg",
+                            product_mockup_layout_file_path: "396.jpg",
+                            zoho_item_id: 937760000011734592,
+                            status: null,
+                            delete_status: "",
+                            created_by: null,
+                            created_at: "2018-06-28 12:23:43",
+                            updated_by: null,
+                            updated_at: "2020-11-02 00:01:41",
+                            deleted_by: null,
+                            deleted_date: null,
+                            product_seprate_panel: 1,
+                            product_max_print_height: 480,
+                            product_max_print_width: 420,
+                            product_max_print_X: 360,
+                            product_max_print_Y: 330,
+                            rate_per_inch: 1.5,
+                            min_print_rate: 120,
+                            product_back_mockup_layout_file_path: "back-396.jpg",
+                            size_migration: null,
+                            parent_id: 461,
+                            parent_flag: 0,
+                            product_sample_base_price: 450,
+                            number_of_mockups: 4,
+                            reorder_level: 13,
+                            product_eoq: 0,
+                            product_cubic_volume: 0,
+                            product_length_cm: 32,
+                            product_breadth_cm: 26,
+                            product_height_cm: 2,
+                            actual_stock: 11,
+                            use_actual_stock: 1,
+                        },
+                        product_color_name: "Melange Grey",
+                        product_size_name: "L",
+                    },
+                    {
+                        product_variant_option_id: 20,
+                        product_variant_id: 3,
+                        product_option_value: "XL",
+                        sorting_id: 0,
+                        is_inactive: 0,
+                        option_color_code: "",
+                        created_at: "2018-11-30 16:52:40",
+                        updated_at: "2018-11-30 16:52:40",
+                        product_id: 397,
+                        product_code: "MGREY-XL-MENR-LONG",
+                        product_name: "Melange Grey XL Men Round Long Sleeves",
+                        product: {
+                            product_id: 397,
+                            item_id: 359,
+                            product_code: "MGREY-XL-MENR-LONG",
+                            product_name: "Melange Grey XL Men Round Long Sleeves",
+                            product_category_id: 16,
+                            product_brand: null,
+                            product_model: null,
+                            product_price: 180,
+                            product_weight: 200,
+                            product_front_height: null,
+                            product_front_width: null,
+                            product_front_x: null,
+                            product_front_y: null,
+                            product_mockup_height: 1140,
+                            product_mockup_width: 1140,
+                            product_canvas_height: 1140,
+                            product_canvas_width: 1140,
+                            product_mockup_x: null,
+                            product_mockup_y: null,
+                            product_sku: 5,
+                            product_mockup_file_path: "397.jpg",
+                            product_mockup_layout_file_path: "397.jpg",
+                            zoho_item_id: 937760000011734617,
+                            status: null,
+                            delete_status: "",
+                            created_by: null,
+                            created_at: "2018-06-28 12:24:33",
+                            updated_by: null,
+                            updated_at: "2020-11-02 00:01:41",
+                            deleted_by: null,
+                            deleted_date: null,
+                            product_seprate_panel: 1,
+                            product_max_print_height: 480,
+                            product_max_print_width: 420,
+                            product_max_print_X: 360,
+                            product_max_print_Y: 330,
+                            rate_per_inch: 1.5,
+                            min_print_rate: 120,
+                            product_back_mockup_layout_file_path: "back-397.jpg",
+                            size_migration: null,
+                            parent_id: 461,
+                            parent_flag: 0,
+                            product_sample_base_price: 450,
+                            number_of_mockups: 4,
+                            reorder_level: 7,
+                            product_eoq: 0,
+                            product_cubic_volume: 0,
+                            product_length_cm: 32,
+                            product_breadth_cm: 26,
+                            product_height_cm: 2,
+                            actual_stock: 5,
+                            use_actual_stock: 1,
+                        },
+                        product_color_name: "Melange Grey",
+                        product_size_name: "XL",
+                    },
+                    {
+                        product_variant_option_id: 21,
+                        product_variant_id: 3,
+                        product_option_value: "2XL",
+                        sorting_id: 0,
+                        is_inactive: 0,
+                        option_color_code: "",
+                        created_at: "2018-11-30 16:52:40",
+                        updated_at: "2018-11-30 16:52:40",
+                        product_id: 398,
+                        product_code: "MGREY-XXL-MENR-LONG",
+                        product_name: "Melange Grey XXL Men Round Long Sleeves",
+                        product: {
+                            product_id: 398,
+                            item_id: 360,
+                            product_code: "MGREY-XXL-MENR-LONG",
+                            product_name: "Melange Grey XXL Men Round Long Sleeves",
+                            product_category_id: 16,
+                            product_brand: null,
+                            product_model: null,
+                            product_price: 180,
+                            product_weight: 200,
+                            product_front_height: null,
+                            product_front_width: null,
+                            product_front_x: null,
+                            product_front_y: null,
+                            product_mockup_height: 1140,
+                            product_mockup_width: 1140,
+                            product_canvas_height: 1140,
+                            product_canvas_width: 1140,
+                            product_mockup_x: null,
+                            product_mockup_y: null,
+                            product_sku: 23,
+                            product_mockup_file_path: "398.jpg",
+                            product_mockup_layout_file_path: "398.jpg",
+                            zoho_item_id: 937760000011734642,
+                            status: null,
+                            delete_status: "",
+                            created_by: null,
+                            created_at: "2018-06-28 12:25:21",
+                            updated_by: null,
+                            updated_at: "2020-11-02 00:01:41",
+                            deleted_by: null,
+                            deleted_date: null,
+                            product_seprate_panel: 1,
+                            product_max_print_height: 480,
+                            product_max_print_width: 420,
+                            product_max_print_X: 360,
+                            product_max_print_Y: 330,
+                            rate_per_inch: 1.5,
+                            min_print_rate: 120,
+                            product_back_mockup_layout_file_path: "back-398.jpg",
+                            size_migration: null,
+                            parent_id: 461,
+                            parent_flag: 0,
+                            product_sample_base_price: 450,
+                            number_of_mockups: 4,
+                            reorder_level: 4,
+                            product_eoq: 67,
+                            product_cubic_volume: 0,
+                            product_length_cm: 32,
+                            product_breadth_cm: 26,
+                            product_height_cm: 2,
+                            actual_stock: 23,
+                            use_actual_stock: 1,
+                        },
+                        product_color_name: "Melange Grey",
+                        product_size_name: "2XL",
+                    },
+                ],
+            },
+        ];
         this.products = [];
         this.modes = [
             "Standard shipping",
@@ -19260,7 +20728,10 @@ var ProductEditComponent = /** @class */ (function () {
             ],
         });
         this.filteredManufactures = this.productForm.controls.manufacture.valueChanges.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["startWith"])(""), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (val) { return _this.filterManufacture(val.toString()); }));
-        this.filteredColors = this.productForm.controls.color.valueChanges.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["startWith"])(""), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["map"])(function (val) { return _this.filterColor(val.toString()); }));
+        // this.filteredColors = this.productForm.controls.color.valueChanges.pipe(
+        // 	startWith(""),
+        // 	map((val) => this.filterColor(val.toString()))
+        // );
     };
     /**
      * Filter manufacture
@@ -19464,7 +20935,7 @@ var ProductEditComponent = /** @class */ (function () {
     };
     ProductEditComponent.prototype.colorSelection = function (value, product) {
         this.showItem = true;
-        product.color = value;
+        product.color = value.product_variant_option_id;
     };
     ProductEditComponent.prototype.sizeSelection = function (value, product) {
         this.showItem = true;
@@ -19482,6 +20953,12 @@ var ProductEditComponent = /** @class */ (function () {
     };
     ProductEditComponent.prototype.removeProduct = function (i) {
         this.products.splice(i, 1);
+    };
+    ProductEditComponent.prototype.openDesignModal = function (i) {
+        var dialogRef = this.dialog.open(_theme_content_builder_builder_component__WEBPACK_IMPORTED_MODULE_11__["BuilderComponent"], {
+            width: "800px",
+            height: "800px",
+        });
     };
     ProductEditComponent.ctorParameters = function () { return [
         { type: _ngrx_store__WEBPACK_IMPORTED_MODULE_7__["Store"] },
@@ -19502,6 +20979,7 @@ var ProductEditComponent = /** @class */ (function () {
             selector: "kt-product-edit",
             template: __webpack_require__(/*! raw-loader!./product-edit.component.html */ "./node_modules/raw-loader/index.js!./src/app/views/pages/apps/e-commerce/products/product-edit/product-edit.component.html"),
             changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectionStrategy"].OnPush,
+            styles: [__webpack_require__(/*! ./product-edit.component.css */ "./src/app/views/pages/apps/e-commerce/products/product-edit/product-edit.component.css")]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ngrx_store__WEBPACK_IMPORTED_MODULE_7__["Store"],
             _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
@@ -28335,6 +29813,383 @@ var BrandComponent = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_core_base_layout__WEBPACK_IMPORTED_MODULE_2__["LayoutConfigService"], _html_class_service__WEBPACK_IMPORTED_MODULE_3__["HtmlClassService"]])
     ], BrandComponent);
     return BrandComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/views/theme/content/builder/builder.component.scss":
+/*!********************************************************************!*\
+  !*** ./src/app/views/theme/content/builder/builder.component.scss ***!
+  \********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ":host ::ng-deep ngb-tabset > .nav-tabs {\n  display: none; }\n\n.design-thumbnail-div {\n  position: relative;\n  overflow: hidden;\n  padding-bottom: 100%;\n  border: 1.5px solid #bbb;\n  border-radius: 5px; }\n\n.design-thumbnail-div img {\n  position: absolute;\n  -o-object-fit: contain;\n     object-fit: contain;\n  width: auto;\n  height: 99%;\n  top: 50%;\n  left: 50%;\n  -webkit-transform: translateX(-50%) translateY(-50%);\n          transform: translateX(-50%) translateY(-50%); }\n\n.shadow {\n  box-shadow: 0 10px 6px -6px #777; }\n\n.kt-portlet__body {\n  max-height: 100% !important; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9LYXJ0aGlrL1dlYnN0b3JtUHJvamVjdHMvRnJlZWxhbmNlclByb2plY3QvZnVua3l0ZWVzL3NyYy9hcHAvdmlld3MvdGhlbWUvY29udGVudC9idWlsZGVyL2J1aWxkZXIuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFHRyxhQUFhLEVBQUE7O0FBS2hCO0VBQ0Msa0JBQWlCO0VBQ2pCLGdCQUFlO0VBQ2Ysb0JBQW1CO0VBQ25CLHdCQUF3QjtFQUN4QixrQkFBa0IsRUFBQTs7QUFHbkI7RUFDQyxrQkFBa0I7RUFDbEIsc0JBQW1CO0tBQW5CLG1CQUFtQjtFQUNuQixXQUFXO0VBQ1gsV0FBVztFQUNYLFFBQVE7RUFDUixTQUFTO0VBQ1Qsb0RBQTRDO1VBQTVDLDRDQUE0QyxFQUFBOztBQUc3QztFQUdDLGdDQUFnQyxFQUFBOztBQUdqQztFQUNDLDJCQUEyQixFQUFBIiwiZmlsZSI6InNyYy9hcHAvdmlld3MvdGhlbWUvY29udGVudC9idWlsZGVyL2J1aWxkZXIuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyI6aG9zdCB7XHJcblx0OjpuZy1kZWVwIHtcclxuXHRcdG5nYi10YWJzZXQgPiAubmF2LXRhYnMge1xyXG5cdFx0XHRkaXNwbGF5OiBub25lO1xyXG5cdFx0fVxyXG5cdH1cclxufVxyXG5cclxuLmRlc2lnbi10aHVtYm5haWwtZGl2IHtcclxuXHRwb3NpdGlvbjpyZWxhdGl2ZTtcclxuXHRvdmVyZmxvdzpoaWRkZW47XHJcblx0cGFkZGluZy1ib3R0b206MTAwJTtcclxuXHRib3JkZXI6IDEuNXB4IHNvbGlkICNiYmI7XHJcblx0Ym9yZGVyLXJhZGl1czogNXB4O1xyXG5cdC8vYmFja2dyb3VuZDogdXJsKC9hc3NldHMvaW1nL3ZhcmlvdXMvdHJhc25wYXJlbnQtcGF0dGVybi5wbmcpIGNlbnRlciBjZW50ZXI7XHJcbn1cclxuLmRlc2lnbi10aHVtYm5haWwtZGl2IGltZ3tcclxuXHRwb3NpdGlvbjogYWJzb2x1dGU7XHJcblx0b2JqZWN0LWZpdDogY29udGFpbjtcclxuXHR3aWR0aDogYXV0bztcclxuXHRoZWlnaHQ6IDk5JTtcclxuXHR0b3A6IDUwJTtcclxuXHRsZWZ0OiA1MCU7XHJcblx0dHJhbnNmb3JtOiB0cmFuc2xhdGVYKC01MCUpIHRyYW5zbGF0ZVkoLTUwJSk7XHJcbn1cclxuXHJcbi5zaGFkb3cge1xyXG5cdC13ZWJraXQtYm94LXNoYWRvdzogMCAxMHB4IDZweCAtNnB4ICM3Nzc7XHJcblx0LW1vei1ib3gtc2hhZG93OiAwIDEwcHggNnB4IC02cHggIzc3NztcclxuXHRib3gtc2hhZG93OiAwIDEwcHggNnB4IC02cHggIzc3NztcclxufVxyXG5cclxuLmt0LXBvcnRsZXRfX2JvZHl7XHJcblx0bWF4LWhlaWdodDogMTAwJSAhaW1wb3J0YW50O1xyXG59XHJcbiJdfQ== */"
+
+/***/ }),
+
+/***/ "./src/app/views/theme/content/builder/builder.component.ts":
+/*!******************************************************************!*\
+  !*** ./src/app/views/theme/content/builder/builder.component.ts ***!
+  \******************************************************************/
+/*! exports provided: BuilderComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BuilderComponent", function() { return BuilderComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _core_base_layout__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../core/_base/layout */ "./src/app/core/_base/layout/index.ts");
+
+// Angular
+
+
+// Layout
+
+var BuilderComponent = /** @class */ (function () {
+    /**
+     * Component constructor
+     *
+     * @param layoutConfigService: LayoutConfigService
+     */
+    function BuilderComponent(layoutConfigService) {
+        this.layoutConfigService = layoutConfigService;
+        /**
+         * @ Lifecycle sequences => https://angular.io/guide/lifecycle-hooks
+         */
+        this.pluginOpts = {
+            stageWidth: "1248",
+            stageHeight: "909",
+            editorMode: false,
+            mainBarModules: [],
+            boundingBoxProps: {
+                strokeWidth: "5",
+            },
+            customImageParameters: {
+                draggable: true,
+                removable: true,
+                resizable: true,
+                rotatable: false,
+                autoCenter: true,
+                maxH: 4200,
+                maxW: 4800,
+                allowedImageTypes: ["jpeg"],
+            },
+            actions: {
+                top: [],
+                right: [],
+                bottom: [],
+                left: [],
+            },
+        };
+        this.loading = false;
+    }
+    /**
+     * On init
+     */
+    BuilderComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.model = this.layoutConfigService.getConfig();
+        this.fpd = new FancyProductDesigner(jQuery("#designer"), this.pluginOpts);
+        console.log(this.fpd);
+        setTimeout(function () {
+            console.log(_this.fpd);
+            _this.addProduct();
+            _this.loadEditMode();
+            setTimeout(function () {
+                console.log("Adding Design");
+                // this.addDesign(0);
+            }, 8000);
+            _this.showLoader = false;
+        }, 5000);
+    };
+    BuilderComponent.prototype.loadEditMode = function () {
+        // if (product.productValid) {
+        // 	$("#saveButton").removeClass("shakingButton");
+        // 	this.autoCenter = false;
+        // 	if (
+        // 		product.back_design_id_selected != "" &&
+        // 		product.back_crop_details != null
+        // 	) {
+        // 		let cropDetails = product.back_crop_details;
+        // 		this.backDesignId = product.back_design_id_selected;
+        // 		this.cropDetailsToFpdDetails(
+        // 			this.backDesignId,
+        // 			cropDetails,
+        // 			1
+        // 		);
+        // 	}
+        // 	if (
+        // 		product.design_id_selected != "" &&
+        // 		product.crop_details != null
+        // 	) {
+        // 		let cropDetails = product.crop_details;
+        // 		this.designId = product.design_id_selected;
+        // 		this.cropDetailsToFpdDetails(this.designId, cropDetails, 0);
+        // 	}
+        // } else {
+        // 	this.showPriceCalculationLoader = false;
+        // 	this.autoCenter = true;
+        // }
+    };
+    BuilderComponent.prototype.addDesign = function (view) {
+        //Remove Previous Design from Current View Instance
+        this.fpd.selectView(0);
+        if (view == 0) {
+            var fabricElement = this.fpd.getElementByTitle("Front Design");
+            if (fabricElement) {
+                this.fpd.currentViewInstance.stage.remove(fabricElement);
+            }
+            var scale = 0.45;
+            var title = "Front Design";
+            this.frontDesign = true;
+            // this.orderProductData.product.design_id_selected = this.designId;
+            var top_1 = null;
+            var left = null;
+            var designUrl = null;
+        }
+        else {
+            var fabricElement = this.fpd.getElementByTitle("Back Design");
+            if (fabricElement) {
+                this.fpd.currentViewInstance.stage.remove(fabricElement);
+            }
+            var scale = 0.45;
+            var title = "Back Design";
+            this.backDesign = true;
+            // this.orderProductData.product.back_design_id_selected =
+            // 	this.backDesignId;
+            var top_2 = null;
+            var left = null;
+            var designUrl = null;
+        }
+        var params = {
+            uploadZone: 0,
+            autoCenter: true,
+            autoSelect: true,
+            opacity: 0.9,
+            degree: 0,
+            price: 0,
+            originX: "center",
+            originY: "center",
+            removable: true,
+            draggable: true,
+            rotatable: false,
+            resizable: true,
+            zChangeable: false,
+            topped: false,
+            uniScalingUnlockable: false,
+            excludeFromExport: false,
+            advancedEditing: false,
+            locked: false,
+        };
+        // this.fpd.addCustomImage( $rootScope.designFileMain, title, params, view );
+        this.fpd.addElement("image", "https://s3.ap-south-1.amazonaws.com/dodatafiles/public/temp_designs_cache/5f589b3a2c990--DES_391864.png", "Font Design", params, view);
+        this.loading = false;
+    };
+    BuilderComponent.prototype.addProduct = function () {
+        var params = {
+            uploadZone: 0,
+            autoCenter: true,
+            degree: 0,
+            price: 0,
+            originX: "center",
+            originY: "center",
+            removable: false,
+            draggable: false,
+            rotatable: false,
+            resizable: false,
+            zChangeable: false,
+            topped: false,
+            autoSelect: false,
+            uniScalingUnlockable: false,
+            excludeFromExport: true,
+            advancedEditing: false,
+            locked: false,
+        };
+        this.fpd.addElement("image", "https://datacenter.printrove.com/mockup_layouts_img/315.jpg", "Front", params, 0);
+        // if (this.productType == "special" && this.showBack) {
+        // 	this.fpd.addElement("image", this.backLayout, "Back", params, 1);
+        // }
+    };
+    BuilderComponent.prototype.openDesignModal = function () {
+        var view = 0;
+        var designWd = 1948;
+        var designHt = 1609;
+        if (view == 0) {
+            this.designId = 123;
+            this.frontDesignMain =
+                "https://s3.ap-south-1.amazonaws.com/dodatafiles/public/temp_designs_cache/5f589b3a2c990--DES_391864.png";
+            this.designOriginalWd = designWd;
+            this.designOriginalHt = designHt;
+        }
+        var boundingBoxHeight = 4800;
+        var boundingBoxWidth = 4200;
+        var ratio = designWd / designHt;
+        //Setting the initial size of the design depending upon the product and design dimensions
+        var scaleRatio = 0.9;
+        if (designWd < boundingBoxWidth && designHt < boundingBoxHeight) {
+            this.initialScale = 1;
+            this.backInitialScale = 1;
+        }
+        else if (designWd < boundingBoxWidth &&
+            designHt >= boundingBoxHeight) {
+            var resizedDesignHt = boundingBoxHeight;
+            this.initialScale = resizedDesignHt / designHt;
+            this.backInitialScale = resizedDesignHt / designHt;
+        }
+        else if (designWd >= boundingBoxWidth &&
+            designHt < boundingBoxHeight) {
+            var resizedDesignWd = boundingBoxWidth;
+            this.initialScale = resizedDesignWd / designWd;
+            this.backInitialScale = resizedDesignWd / designWd;
+        }
+        else {
+            //Landscape Bounding Box
+            if (designWd > designHt) {
+                //Landscape Design
+                var resizedDesignWd = boundingBoxWidth;
+                this.initialScale = resizedDesignWd / designWd;
+                this.backInitialScale = resizedDesignWd / designWd;
+                var resizedDesignHt = designHt * this.initialScale;
+                if (resizedDesignHt > boundingBoxHeight) {
+                    var resizedDesignHt = boundingBoxHeight;
+                    this.initialScale = resizedDesignHt / designHt;
+                    this.backInitialScale = resizedDesignHt / designHt;
+                }
+            }
+            else {
+                var resizedDesignHt = boundingBoxHeight;
+                this.initialScale = resizedDesignHt / designHt;
+                this.backInitialScale = resizedDesignHt / designHt;
+                var resizedDesignWd = this.initialScale * designWd;
+                if (resizedDesignWd > boundingBoxWidth) {
+                    var resizedDesignWd = boundingBoxWidth;
+                    this.initialScale = resizedDesignWd / designWd;
+                    this.backInitialScale = resizedDesignWd / designWd;
+                }
+            }
+        }
+        this.initialScale = (this.initialScale * scaleRatio) / (10 / 5);
+        this.backInitialScale = (this.backInitialScale * scaleRatio) / (10 / 5);
+        this.addDesign(view);
+    };
+    /**
+     * Reset preview
+     *
+     * @param e: Event
+     */
+    BuilderComponent.prototype.resetPreview = function (e) {
+        e.preventDefault();
+        this.layoutConfigService.resetConfig();
+        location.reload();
+    };
+    /**
+     * Submit preview
+     *
+     * @param e: Event
+     */
+    BuilderComponent.prototype.submitPreview = function (e) {
+        this.layoutConfigService.setConfig(this.model, true);
+        location.reload();
+    };
+    BuilderComponent.ctorParameters = function () { return [
+        { type: _core_base_layout__WEBPACK_IMPORTED_MODULE_3__["LayoutConfigService"] }
+    ]; };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])("form", { static: true }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_forms__WEBPACK_IMPORTED_MODULE_2__["NgForm"])
+    ], BuilderComponent.prototype, "form", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])("somelet", { static: true }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"])
+    ], BuilderComponent.prototype, "el", void 0);
+    BuilderComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: "kt-builder",
+            template: __webpack_require__(/*! raw-loader!./builder.component.html */ "./node_modules/raw-loader/index.js!./src/app/views/theme/content/builder/builder.component.html"),
+            styles: [__webpack_require__(/*! ./builder.component.scss */ "./src/app/views/theme/content/builder/builder.component.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_core_base_layout__WEBPACK_IMPORTED_MODULE_3__["LayoutConfigService"]])
+    ], BuilderComponent);
+    return BuilderComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/views/theme/content/builder/builder.module.ts":
+/*!***************************************************************!*\
+  !*** ./src/app/views/theme/content/builder/builder.module.ts ***!
+  \***************************************************************/
+/*! exports provided: BuilderModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BuilderModule", function() { return BuilderModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/fesm5/ng-bootstrap.js");
+/* harmony import */ var ngx_perfect_scrollbar__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-perfect-scrollbar */ "./node_modules/ngx-perfect-scrollbar/dist/ngx-perfect-scrollbar.es5.js");
+/* harmony import */ var _partials_partials_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../partials/partials.module */ "./src/app/views/partials/partials.module.ts");
+/* harmony import */ var ngx_highlightjs__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ngx-highlightjs */ "./node_modules/ngx-highlightjs/fesm5/ngx-highlightjs.js");
+/* harmony import */ var _core_core_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../../core/core.module */ "./src/app/core/core.module.ts");
+/* harmony import */ var _builder_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./builder.component */ "./src/app/views/theme/content/builder/builder.component.ts");
+
+// Angular
+
+
+
+
+
+// NgBootstrap
+
+// Perfect Scrollbar
+
+// Partials
+
+// Highlight JS
+
+// CoreModule
+
+// Builder component
+
+var BuilderModule = /** @class */ (function () {
+    function BuilderModule() {
+    }
+    BuilderModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+            imports: [
+                _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
+                _partials_partials_module__WEBPACK_IMPORTED_MODULE_8__["PartialsModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormsModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_5__["MatTabsModule"],
+                _core_core_module__WEBPACK_IMPORTED_MODULE_10__["CoreModule"],
+                ngx_perfect_scrollbar__WEBPACK_IMPORTED_MODULE_7__["PerfectScrollbarModule"],
+                ngx_highlightjs__WEBPACK_IMPORTED_MODULE_9__["HighlightModule"],
+                _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"].forChild([
+                    {
+                        path: '',
+                        component: _builder_component__WEBPACK_IMPORTED_MODULE_11__["BuilderComponent"]
+                    }
+                ]),
+                // ng-bootstrap modules
+                _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_6__["NgbTabsetModule"],
+            ],
+            providers: [],
+            declarations: [_builder_component__WEBPACK_IMPORTED_MODULE_11__["BuilderComponent"]]
+        })
+    ], BuilderModule);
+    return BuilderModule;
 }());
 
 

@@ -4909,7 +4909,7 @@ var MaterialModule = /** @class */ (function () {
                 _angular_forms__WEBPACK_IMPORTED_MODULE_7__["ReactiveFormsModule"],
                 _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"].forChild(routes)
             ],
-            exports: [_angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"], _formcontrols_input_input_component__WEBPACK_IMPORTED_MODULE_20__["InputComponent"]],
+            exports: [_angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"], _formcontrols_input_input_component__WEBPACK_IMPORTED_MODULE_20__["InputComponent"], _buttons_and_indicators_button_button_component__WEBPACK_IMPORTED_MODULE_37__["ButtonComponent"]],
             entryComponents: [
                 _popups_and_modals_snackbar_pizza_party_component__WEBPACK_IMPORTED_MODULE_49__["PizzaPartyComponent"],
                 _popups_and_modals_dialog_dialog_component__WEBPACK_IMPORTED_MODULE_44__["DialogComponent"],
